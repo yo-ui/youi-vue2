@@ -1,8 +1,6 @@
 
 import { RouterURL,routerAuth} from '@/common/env'
 
-const Index = () => import(/* webpackChunkName: "exnet-index" */ '@/pages/index')
-const NotFound = () => import(/* webpackChunkName: "exnet-index" */ '@/pages/notFound')
 const Routers = [
 
     {
@@ -11,7 +9,7 @@ const Routers = [
     meta:{
         title:RouterURL['*'].title,
     },
-    component: NotFound
+    component: () => import(/* webpackChunkName: "exnet-index" */ '@/pages/notFound')
 },
 {
     path: RouterURL['index'].path,
@@ -19,8 +17,27 @@ const Routers = [
     meta:{
         title:RouterURL['index'].title,
     },
-    component: Index
+    component: () => import(/* webpackChunkName: "exnet-index" */ '@/pages/index')
 },
+{
+    path: RouterURL['component'].path,
+    name: RouterURL['component'].name,
+    meta:{
+        title:RouterURL['component'].title,
+    },
+    component: () => import(/* webpackChunkName: "exnet-component" */ '@/pages/component'),
+    children: [
+        {
+            path: RouterURL['componentGuide'].path,
+            name: RouterURL['componentGuide'].name,
+            meta: {
+                title: RouterURL['componentGuide'].title,
+            },
+            component: () => import(/* webpackChunkName: "exnet-component-guide" */ '@/pages/component/guide'),
+        },
+    ]
+},
+
 ]
 
 export default Routers

@@ -149,13 +149,13 @@ for (let f of files) {
         if(!err){
             try {
                 fs.writeFile(f.path,str , function () {
-                console.log(f.path, ' create success');
+                console.log(f.path, ' create success')
                 })
             } catch (error) {
-                console.error(f.path,'create fail');
+                console.error(f.path,'create fail')
             }
         }else{
-            console.error(f.path,'template render fail');
+            console.error(f.path,'template render fail')
         }
     })
 }

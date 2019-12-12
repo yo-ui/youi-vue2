@@ -1,18 +1,18 @@
 <!--demo页面-->
 <template>
-    <div class="yo--page">
-        <!-- <yo-header nav=""/> -->
+    <div class="yo-admin-page">
+        <yo-header code="admin"></yo-header>
         <div class="flex-content">
         </div>
-        <!-- <yo-footer/> -->
     </div>
 </template>
 
 <script>
     import yoCommon from '@/common/common'
     export default {
-        name: 'yo--page',
+        name: 'yo-admin-page',
         components: { //组件传入
+            yoHeader:() => import(/* webpackChunkName: "exnet-component-header" */ '@com/common/yo-header'),
         },
         data() {
             return {

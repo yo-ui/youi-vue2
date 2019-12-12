@@ -1,14 +1,99 @@
 <template>
-    <div class="yo-button">
-    </div>
+    <button class="yo-button"
+        @click="handleClick"
+        :disabled="buttonDisabled || loading"
+        :autofocus="autofocus"
+        :type="nativeType"
+        :class="buttonCls"
+    >
+        <i class="el-icon-loading" v-if="loading"></i>
+        <i :class="icon" v-if="icon && !loading"></i>
+        <template v-if="hasText">
+            <slot></slot>
+        </template>
+    </button>
 </template>
 <script>
+const prefix='yo-btn'
+const Props = {
+  size: ['l', 's', 'xs']
+};
 export default {
 	name: 'yoButton',
 	//存放 数据
     data: function () {
-      return {
-      }
+        return {
+        }
+    },
+    //存放 子组件
+    // template: '',
+    // 注意： 组件中的 所有 props 中的数据，都是通过 父组件传递给子组件的
+    // props 中的数据，都是只读的，无法重新赋值
+    props:{
+        color: String,
+        textColor: String,
+        icon: String,
+        loading: Boolean,
+        circle: Boolean,
+        block: Boolean,
+        noBorder: Boolean,
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        size: {
+            type: String,
+            validator(value) {
+                return Props.size.indexOf(value) != -1
+            }
+        },
+        stop: {
+            type: Boolean,
+            default: false
+        },
+        preventDefault: {
+            type: Boolean,
+            default: false
+        },
+        text: Boolean,
+        iconCircle: Boolean,
+        transparent: {
+            type: Boolean,
+            default: false
+        }
+	}, // 把父组件传递过来的 parentmsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据
+    computed: {
+        hasText() {
+            let slot = this.$slots.default
+            if (slot && slot.length > 0) {
+                return true
+            }
+            return false
+        },
+        buttonCls() {
+            return {
+                [`${prefix}`]: true,
+                [`${prefix}-circle`]: !!this.circle || !!this.iconCircle,
+                [`${prefix}-icon-circle`]: !!this.iconCircle,
+                [`${prefix}-text`]: !!this.text,
+                [`${prefix}-loading`]: !!this.loading,
+                [`${prefix}-block`]: !!this.block,
+                [`${prefix}-text-${this.textColor}`]: !!this.textColor,
+                [`${prefix}-${this.color}`]: !!this.color,
+                [`${prefix}-${this.size}`]: !!this.size,
+                [`${prefix}-transparent`]: !!this.transparent,
+                [`${prefix}-no-border`]: this.noBorder === true
+            }
+        },
+        iconCode() {
+        return this.loading ? 'h-icon-loading' : this.icon;
+        },
+        iconCls() {
+        const iconCode = this.loading ? 'h-icon-loading' : this.icon;
+        return {
+            [`${iconCode}`]: !!iconCode
+        };
+        }
     },
     //存放 方法
     methods: {
@@ -24,13 +109,6 @@ export default {
     directives: {
 
 	},
-    //存放 子组件
-    // template: '',
-    // 注意： 组件中的 所有 props 中的数据，都是通过 父组件传递给子组件的
-    // props 中的数据，都是只读的，无法重新赋值
-    props:{
-
-	}, // 把父组件传递过来的 parentmsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据
     /*  生命周期函数  */
     //创建期间
     beforeCreate() { 

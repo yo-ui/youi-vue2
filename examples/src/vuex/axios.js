@@ -1,11 +1,10 @@
 import {Constants} from '@/common/env'
 // import qs from 'qs'
 import fqCommon from '@/common/common'
-import Mprogress from 'mprogress/mprogress.min'
 // import Nanobar from 'nanobar'
-let mprogress = new Mprogress({
-    template: 3
-})
+// let mprogress = new Mprogress({
+//     template: 3
+// })
 // let nanobar_axios=new Nanobar({
 //     id:'nanobar_axios',
 // })
@@ -30,9 +29,9 @@ async function request(type,options,callback){
         // needAPIkey,
         // coinpayNeedToken,needAPPId,outApi,
         retry,noProgress,noholdFilter}=options
-    if(!noProgress){
-        mprogress.start()
-    }
+    // if(!noProgress){
+    //     mprogress.start()
+    // }
     if(!vm){
         vm=window.$vm
     }
@@ -44,10 +43,10 @@ async function request(type,options,callback){
             // next({
             //     name: 'uphold',
             // })
-            if(!noProgress){
-                mprogress.end()
-                // nanobar_axios.go(100)
-            }
+            // if(!noProgress){
+            //     mprogress.end()
+            //     // nanobar_axios.go(100)
+            // }
             return {}
         }
     }
@@ -116,10 +115,10 @@ async function request(type,options,callback){
         data=await postFunc(url,params,headers,callback)
     }
 
-    if(!noProgress){
-        mprogress.end()
-        // nanobar_axios.go(100)
-    }
+    // if(!noProgress){
+    //     mprogress.end()
+    //     // nanobar_axios.go(100)
+    // }
     if(data){
         let result=data.data
         if(result&&result.code=='02_01_0_001_01_009'){//需要登录授权

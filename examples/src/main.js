@@ -2,12 +2,16 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 // import 'babel-polyfill'
 import App from './App'
-import './registerServiceWorker'
-import router from './router'
+import '@/registerServiceWorker'
+import router from '@/router'
 import fqCommon from '@/common/common'
-import store from './vuex/store'
+import store from '@/vuex/store'
 import vueAnalytics from 'vue-analytics'
 import {URL,RouterURL,Constants} from '@/common/env'
+import YOUI from './../../src/index'
+import 'highlight.js/styles/github-gist.css'
+import vueHighlightjs from '@/common/plugins/vue-highlightjs'
+
 const defaultImage = '/static/images/default.png'
 if (process.env.NODE_ENV === 'production') {
     Vue.use(vueAnalytics, {
@@ -15,6 +19,8 @@ if (process.env.NODE_ENV === 'production') {
         router
     })
 }
+Vue.use(vueHighlightjs)
+Vue.use(YOUI)
 
 //只支持以VUE_APP_开头的变量
 Vue.prototype.IMAGE_SERVER=process.env.VUE_APP_IMAGE_SERVER
@@ -99,7 +105,7 @@ router.beforeEach((to, from, next) => {
     let langObj=$store?$store.getters.getLangObj:null
     let docTitle = to.meta.title
     if (docTitle) {
-        document.title =langKey(langObj,'YoUi')//+langKey(langObj,docTitle)
+        document.title =langKey(langObj,'YOUI')//+langKey(langObj,docTitle)
     }
     if(!RouterURL[to.name]){//如果路由配置不存在则跳到404页
         next({

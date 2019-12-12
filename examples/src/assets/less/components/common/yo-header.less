@@ -1,0 +1,32 @@
+@import "../../common.less";
+.yo-header-com{
+    .bc(@default);
+    .h(60);
+    .df;
+    align-items: center;
+    .logo{
+        .wh(160;50);
+        .bi('/static/images/logo2.png');
+        .bz(100px 50px);
+        .bp(center);
+        .bgr;
+    }
+    .yo-nav{
+        .df;
+        align-items: center;
+        a{
+            .c(@white);
+            opacity:.9;
+        }
+        li{
+            .p(0 20px);
+            .lh(60);
+            cursor: pointer;
+            .db;
+            &:hover,&.active{
+                .bc(rgba(0,0,0,.2));
+                opacity:1;
+            }
+        }
+    }
+}

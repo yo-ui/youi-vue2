@@ -1,19 +1,16 @@
 /**
- *  author: <%=author%>
- *  create at: <%=date%>
+ *  author: eric
+ *  create at: 2019-12-12 15:42:55
  */
 <template>
-    <% if(lowerName=='button'){%>
-        <<%=lowerName%> class="yo-<%=lowerName%>">
-        </<%=lowerName%>>
-    <% }else{%>
-        <div class="yo-<%=lowerName%>">
+    
+        <div class="yo-button-test">
         </div>
-    <% }%>
+    
 </template>
 <script>
 export default {
-	name: 'yo<%=upperName%>',
+	name: 'yoButtonTest',
 	//存放 数据
     data: function () {
         return {

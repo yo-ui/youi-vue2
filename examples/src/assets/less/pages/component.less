@@ -1,0 +1,50 @@
+/**
+ *  author:eric
+ *  create at:2019-12-11
+ *  首页样式
+**/
+@import "../common.less";
+.yo-component-page{    
+    .yo-left{
+        .w(200);
+        // .tc;
+        .title{
+            .ml(15);
+            .fz(16);
+            .lh(44);
+        }
+        .sub{
+            .ml(30);
+            .fz(14);
+            &+.list{
+                li{
+                    .ml(45);
+                }
+            }
+        }
+        .list{
+            li{
+                .ml(30);
+                .lh(44);
+                .fz(13);
+                .c(@gray2);
+                &.active{
+                    .c(@default);
+                }
+            }
+        }
+    }
+    .yo-right{
+        .flex(1);
+        h3{
+            .fz(16);
+            .lh(44);
+        }
+        p{
+            .lh(25);
+        }
+        .yo-code-com{
+            .mb(15);
+        }
+    }
+}

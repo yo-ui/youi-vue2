@@ -1,17 +1,7 @@
 <!--首页组件-->
 <template>
     <div class="yo-index-page">
-        <header class="yo-header">
-            <div class="logo">
-            </div>
-            <ul class="yo-nav">
-                <li class="active">首页</li>
-                <li>组件</li>
-                <li>主题</li>
-                <li>Run</li>
-                <li>管理后台</li>
-            </ul>
-        </header>
+        <yo-header code="index"></yo-header>
         <section class="yo-slider">
 
         </section>
@@ -23,6 +13,7 @@
     export default {
         name: 'yo-index-page',
         components: { //组件传入
+            yoHeader:() => import(/* webpackChunkName: "exnet-component-header" */ '@com/common/yo-header'),
         },
         data() {
             return {

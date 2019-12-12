@@ -3,9 +3,11 @@
  *  created at:2019-12-12
  *  按钮组件
 */
-import Button from '../packages/button/index.js'
+import Button from './components/button'
+import ButtonGroup from './components/button-group'
 const components = [
-  	Button
+	Button,
+	ButtonGroup,
 ]
 
 const install = function(Vue, opts = {}) {
@@ -23,4 +25,5 @@ export default {
 	version: '1.0.0',
 	install,
 	Button,
+	ButtonGroup,
 }
