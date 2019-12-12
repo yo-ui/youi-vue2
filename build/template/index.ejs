@@ -1,0 +1,12 @@
+/**
+ *  author: <%=author%>
+ *  create at: <%=date%>
+ */
+import <%=upperName%> from './<%=lowerName%>'
+
+/* istanbul ignore next */
+<%=upperName%>.install = function(Vue) {
+    Vue.component(<%=upperName%>.name, <%=upperName%>)
+}
+
+export default <%=upperName%>
