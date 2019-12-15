@@ -3,11 +3,11 @@
  *  create at: 2019-12-12
  *  按钮组件入口
  */
-import Button from './button'
+import YoButton from './button'
 
 /* istanbul ignore next */
-Button.install = function(Vue) {
-    Vue.component(Button.name, Button)
+YoButton.install = function(Vue) {
+    Vue.component(YoButton.name, YoButton)
 }
 
-export default Button
+export default YoButton

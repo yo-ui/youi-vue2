@@ -1,5 +1,101 @@
-@button-prefix: ~"@{prefix}button";
+@button-prefix: ~"@{prefix}btn";
 
 .@{button-prefix}{
-
+    .dib;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    .bc(@white);
+    .bor(1px solid @btn-border);
+    .c(@font);
+    .bs;
+    .trans(.1s);
+    .fw(500);
+    .userselect;
+    .p(10px 20px);
+    .br(4px);
+    .fz(14);
+    .m(0);
+    vertical-align: middle;
+    -webkit-appearance:none;
+    .box-s(0 1px 1px 0 @grayE);
+    outline: none;
+    cursor: pointer;
+    &+.@{button-prefix}{
+        .ml(10);
+    }
+    &.@{button-prefix}-primary{
+        .c(@white);
+        .bc(@primary);
+        .borc(@primary);
+    }
+    &.@{button-prefix}-info{
+        .c(@white);
+        .bc(@info);
+        .borc(@info);
+    }
+    &.@{button-prefix}-success{
+        .c(@white);
+        .bc(@success);
+        .borc(@success);
+    }
+    &.@{button-prefix}-warning{
+        .c(@white);
+        .bc(@warning);
+        .borc(@warning);
+    }
+    &.@{button-prefix}-error{
+        .c(@white);
+        .bc(@error);
+        .borc(@error);
+    }
+    &.@{button-prefix}-dashed{
+        border-style: dashed;
+        .bc(rgba(0,0,0,0));
+    }
+    &.@{button-prefix}-text{
+        .bor(none);
+        .bc(rgba(0,0,0,0));
+        .c(@primary);
+        .box-s(none);
+    }
+    &.@{button-prefix}-no-border{
+        .bor(none);
+    }
+    &.@{button-prefix}-round{
+        .br(20px);
+    }
+    &.@{button-prefix}-square{
+        .br(0);
+    }
+    &.@{button-prefix}-l{
+        .p(12px 20px);
+    }
+    &.@{button-prefix}-m{
+        .p(8px 20px);
+    }
+    &.@{button-prefix}-s{
+        .p(6px 20px);
+    }
+    &.@{button-prefix}-xs{
+        .p(4px 20px);
+    }
+    &.@{button-prefix}-block{
+        .w(100%);
+        .db;
+    }
+    &.@{button-prefix}-disabled{
+        .borc(@border-disabled);
+        .bc(@bg-disabled);
+        .c(@font-disabled);
+        cursor: not-allowed;
+        .box-s(none);
+    }
+    &:hover:not(.@{button-prefix}-disabled){
+        opacity:.8;
+        .box-s(0 1px 3px 0 @grayC);
+        &.@{button-prefix}-text{
+            .box-s(none);
+        }
+    }
 }

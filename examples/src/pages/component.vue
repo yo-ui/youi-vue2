@@ -4,6 +4,7 @@
         <yo-header code="component"></yo-header>
         <div class="flex-content">
             <div class="yo-left">
+                <img src="https://file.iviewui.com/asd/asd-coding5.png" alt="">
                 <h2 class="title" v-text="langKey('开发指南')"></h2>
                 <ul class="list">
                     <router-link :to="{name:'componentGuide'}"><li :class="{'active':code=='componentGuide'}">{{langKey('入门')}}</li></router-link>
@@ -15,8 +16,7 @@
 
                 <h3 class="sub" v-text="langKey('基础组件')"></h3>
                 <ul class="list">
-                    <router-link :to="{name:'componentGuide'}"><li :class="{'active':code=='componentGuide3'}">{{langKey('首页')}}</li></router-link>
-                    <router-link :to="{name:'componentGuide'}"><li :class="{'active':code=='componentGuide4'}">{{langKey('首页')}}</li></router-link>
+                    <router-link :to="{name:'componentButton'}"><li :class="{'active':code=='componentButton'}">{{langKey('按钮')}}</li></router-link>
                     <router-link :to="{name:'componentGuide'}"><li :class="{'active':code=='componentGuide5'}">{{langKey('首页')}}</li></router-link>
                 </ul>
                 <h3 class="sub" v-text="langKey('表单组件')"></h3>
@@ -42,13 +42,15 @@
         },
         data() {
             return {
-                code:'componentGuide',
+                // code:'componentGuide',
             }
         },
         mounted() {
         },
         computed: {
-
+            code(){
+                return this.$route.name||'componentGuide'
+            }
         },
         methods: {
 

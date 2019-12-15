@@ -4,10 +4,13 @@
  *  首页样式
 **/
 @import "../common.less";
-.yo-component-page{    
+.yo-component-page{
     .yo-left{
-        .w(200);
+        min-width: 200px;
         // .tc;
+        img{
+            .w(250);
+        }
         .title{
             .ml(15);
             .fz(16);
@@ -36,10 +39,9 @@
     }
     .yo-right{
         .flex(1);
-        h3{
-            .fz(16);
-            .lh(44);
-        }
+        .pl(20);
+        // .ml(20);
+        .borr(1px solid @border);
         p{
             .lh(25);
         }

@@ -26,14 +26,28 @@ const Routers = [
         title:RouterURL['component'].title,
     },
     component: () => import(/* webpackChunkName: "exnet-component" */ '@/pages/component'),
+    redirect:{
+        name:RouterURL['componentGuide'].name,
+    },
     children: [
+        // 开发指南
         {
             path: RouterURL['componentGuide'].path,
             name: RouterURL['componentGuide'].name,
             meta: {
                 title: RouterURL['componentGuide'].title,
             },
-            component: () => import(/* webpackChunkName: "exnet-component-guide" */ '@/pages/component/guide'),
+            component: () => import(/* webpackChunkName: "exnet-component-guide" */ '@/pages/component/develop/guide'),
+        },
+
+        //组件-基础组件
+        {
+            path: RouterURL['componentButton'].path,
+            name: RouterURL['componentButton'].name,
+            meta: {
+                title: RouterURL['componentButton'].title,
+            },
+            component: () => import(/* webpackChunkName: "exnet-component-button" */ '@/pages/component/basic/button'),
         },
     ]
 },

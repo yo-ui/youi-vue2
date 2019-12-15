@@ -7,6 +7,7 @@ export default {
     'index': {name:'index',path:'/',title:'首页'},
     'component': {name:'component',path:'/component',title:'组件页'},
     'componentGuide': {name:'componentGuide',path:'',title:'组件入门页'},
+    'componentButton': {name:'componentButton',path:'button',title:'按钮组件'},
 
     'login': {name:'login',path:'/signin',title:'登录'},
     'reg': {name:'reg',path:'/signup',title:'注册'},

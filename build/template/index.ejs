@@ -9,11 +9,11 @@
         lastName=lastName.slice(0,1).toUpperCase()+lastName.slice(1)
     }
     upperName=upperNames[0]+lastName %>
-import <%=upperName%> from './<%=lowerName%>'
+import Yo<%=upperName%> from './<%=lowerName%>'
 
 /* istanbul ignore next */
-<%=upperName%>.install = function(Vue) {
-    Vue.component(<%=upperName%>.name, <%=upperName%>)
+Yo<%=upperName%>.install = function(Vue) {
+    Vue.component(Yo<%=upperName%>.name, Yo<%=upperName%>)
 }
 
-export default <%=upperName%>
+export default Yo<%=upperName%>

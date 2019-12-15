@@ -1,16 +1,16 @@
 <!--demo页面-->
 <template>
-    <div class="fq-component-guide-page">
-        <h3>{{langKey('快速上手')}}</h3>
+    <div class="fq-develop-guide-page">
+        <yo-anchor :text="langKey('快速上手')"></yo-anchor>
         <p>
             {{langKey('本节将介绍如何在项目中使用 YOUI')}}
         </p>
-        <h3>{{langKey('引入 YOUI')}}</h3>
+        <yo-anchor :text="langKey('引入 YOUI')"></yo-anchor>
 
-        <p>你可以引入整个 YOUI，或是根据需要仅引入部分组件。我们先介绍如何引入完整的 YOUI。</p>
+        <p>{{langKey('你可以引入整个 YOUI，或是根据需要仅引入部分组件。我们先介绍如何引入完整的 YOUI。')}}</p>
 
-        <h3>¶完整引入</h3>
-        <p>在 main.js 中写入以下内容：</p>
+        <yo-anchor :text="langKey('完整引入')"></yo-anchor>
+        <p>{{langKey('在 main.js 中写入以下内容：')}}</p>
 <yo-code>
 import Vue from 'vue';
 import YOUI from 'youi';
@@ -23,22 +23,22 @@ new Vue({
 });
 </yo-code>
         <p>
-            以上代码便完成了 YOUI 的引入。需要注意的是，样式文件需要单独引入。
+            {{langKey('以上代码便完成了 YOUI 的引入。需要注意的是，样式文件需要单独引入。')}}
         </p>
-        <h3>
-        ¶按需引入
-        </h3>
+        <yo-anchor :text="langKey('按需引入')">
+        <a :href="'#'+langKey('按需引入')" class="yo-font yolianjie"></a>{{langKey('按需引入')}}
+        </yo-anchor>
     <p>
-    借助 babel-plugin-component，我们可以只引入需要的组件，以达到减小项目体积的目的。
+    {{langKey('借助')}} babel-plugin-component，{{langKey('我们可以只引入需要的组件，以达到减小项目体积的目的。')}}
     </p>
     <p>
-    首先，安装 babel-plugin-component：
+    {{langKey('首先，安装')}} babel-plugin-component：
     </p>
     <yo-code>
     npm install babel-plugin-component -D
     </yo-code>
     <p>
-    然后，将 .babelrc 修改为：
+    {{langKey('然后，将 .babelrc 修改为：')}}
     </p>
     <yo-code>
     {
@@ -55,7 +55,7 @@ new Vue({
     }
     </yo-code>
     <p>
-    接下来，如果你只希望引入部分组件，比如 Button 和 Select，那么需要在 main.js 中写入以下内容：
+    {{langKey('接下来，如果你只希望引入部分组件，比如 Button 和 Select，那么需要在 main.js 中写入以下内容：')}}
     </p>
 <yo-code>
 import Vue from 'vue';
@@ -75,7 +75,7 @@ new Vue({
 });
 </yo-code>
 <p>
-完整组件列表和引入方式（完整组件列表以 components.json 为准）
+{{langKey('完整组件列表和引入方式（完整组件列表以 components.json 为准）')}}
 </p>
 <yo-code>
 import Vue from 'vue';
@@ -243,12 +243,12 @@ Vue.prototype.$prompt = MessageBox.prompt;
 Vue.prototype.$notify = Notification;
 Vue.prototype.$message = Message;
 </yo-code>
-<h3>¶全局配置</h3>
+<yo-anchor :text="langKey('全局配置')"></yo-anchor>
 <p>
-在引入 YOUI 时，可以传入一个全局配置对象。该对象目前支持 size 与 zIndex 字段。size 用于改变组件的默认尺寸，zIndex 设置弹框的初始 z-index（默认值：2000）。按照引入 YOUI 的方式，具体操作如下：
+{{langKey('在引入 YOUI 时，可以传入一个全局配置对象。该对象目前支持 size 与 zIndex 字段。size 用于改变组件的默认尺寸，zIndex 设置弹框的初始 z-index（默认值：2000）。按照引入 YOUI 的方式，具体操作如下：')}}
 </p>
 <p>
-完整引入 YOUI：
+{{langKey('完整引入 YOUI：')}}
 </p>
 <yo-code>
 import Vue from 'vue';
@@ -256,7 +256,7 @@ import YOUI from 'youi';
 Vue.use(YOUI, { size: 'small', zIndex: 3000 });
 </yo-code>
 <p>
-按需引入 YOUI：
+{{langKey('按需引入 YOUI：')}}
 </p>
 <yo-code>
 import Vue from 'vue';
@@ -266,11 +266,11 @@ Vue.prototype.$YOUI = { size: 'small', zIndex: 3000 };
 Vue.use(Button);
 </yo-code>
 <p>
-按照以上设置，项目中所有拥有 size 属性的组件的默认尺寸均为 'small'，弹框的初始 z-index 为 3000。
+{{langKey('按照以上设置，项目中所有拥有 size 属性的组件的默认尺寸均为 \'small\'，弹框的初始 z-index 为 3000。')}}
 </p>
-<h3>¶开始使用</h3>
+<yo-anchor :text="langKey('开始使用')"></yo-anchor>
 <p>
-至此，一个基于 Vue 和 YOUI 的开发环境已经搭建完毕，现在就可以编写代码了。各个组件的使用方法请参阅它们各自的文档。
+{{langKey('至此，一个基于 Vue 和 YOUI 的开发环境已经搭建完毕，现在就可以编写代码了。各个组件的使用方法请参阅它们各自的文档。')}}
 </p>
     </div>
 </template>
@@ -278,9 +278,9 @@ Vue.use(Button);
 <script>
     import fqCommon from '@/common/common'
     export default {
-        name: 'fq-component-guide-page',
+        name: 'fq-develop-guide-page',
         components: { //组件传入
-            yoCode:() => import(/* webpackChunkName: "exnet-component-code" */ '@com/common/yo-code'),
+            // yoCode:() => import(/* webpackChunkName: "exnet-component-code" */ '@com/common/yo-code'),
         },
         data() {
             return {

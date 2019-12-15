@@ -9,8 +9,11 @@ import store from '@/vuex/store'
 import vueAnalytics from 'vue-analytics'
 import {URL,RouterURL,Constants} from '@/common/env'
 import YOUI from './../../src/index'
+import './../../assets/less/themes/default/index.less'
 import 'highlight.js/styles/github-gist.css'
 import vueHighlightjs from '@/common/plugins/vue-highlightjs'
+const yoCode=() => import(/* webpackChunkName: "exnet-component-code" */ '@com/common/yo-code')
+const yoAnchor=() => import(/* webpackChunkName: "exnet-component-code" */ '@com/common/yo-anchor')
 
 const defaultImage = '/static/images/default.png'
 if (process.env.NODE_ENV === 'production') {
@@ -21,6 +24,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 Vue.use(vueHighlightjs)
 Vue.use(YOUI)
+
+
+//全局组件定义
+Vue.component('yoCode', yoCode)
+Vue.component('yoAnchor', yoAnchor)
 
 //只支持以VUE_APP_开头的变量
 Vue.prototype.IMAGE_SERVER=process.env.VUE_APP_IMAGE_SERVER
@@ -104,9 +112,9 @@ router.beforeEach((to, from, next) => {
     let $store=router.app.$store||store
     let langObj=$store?$store.getters.getLangObj:null
     let docTitle = to.meta.title
-    if (docTitle) {
-        document.title =langKey(langObj,'YOUI')//+langKey(langObj,docTitle)
-    }
+    // if (docTitle) {
+    //     document.title =langKey(langObj,'YOUI')//+langKey(langObj,docTitle)
+    // }
     if(!RouterURL[to.name]){//如果路由配置不存在则跳到404页
         next({
             name: '*',

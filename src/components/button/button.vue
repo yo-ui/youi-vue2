@@ -1,23 +1,13 @@
-<template>
-    <button class="yo-button"
-        @click="handleClick"
-        :disabled="buttonDisabled || loading"
-        :autofocus="autofocus"
-        :type="nativeType"
-        :class="buttonCls"
-    >
-        <i class="el-icon-loading" v-if="loading"></i>
-        <i :class="icon" v-if="icon && !loading"></i>
-        <template v-if="hasText">
-            <slot></slot>
-        </template>
-    </button>
-</template>
 <script>
 const prefix='yo-btn'
 const Props = {
-  size: ['l', 's', 'xs']
-};
+  size: ['l','m', 's', 'xs']
+}
+const template=`<i class="yo-font yo-font-loading" v-if="loading"></i>
+        <i :class="icon" v-if="icon && !loading"></i>
+        <template v-if="hasText">
+            <slot></slot>
+        </template>`
 export default {
 	name: 'yoButton',
 	//存放 数据
@@ -25,16 +15,37 @@ export default {
         return {
         }
     },
+    /**
+    `
+    `):
+    **/
+    template:`
+        <a :href="typeof(to)=='string'?to:to.name" :class="btnCls" :style="btnStyle"
+        :target="target" @click="handleClick"
+        :disabled="disabled || loading" v-if="isHttpLink">
+            ${template}
+        </a>
+        <router-link :replace="replace" :to="to" :style="btnStyle"
+        :target="target" v-else-if="to&&$route" 
+        :class="btnCls" :disabled="disabled || loading">
+            ${template}
+        </router-link>
+        <button
+        @click="handleClick" :style="btnStyle"
+        :disabled="disabled || loading"
+        :type="nativeType"
+        :class="btnCls" v-else
+        >
+        ${template}
+        </button>
+    `,
     //存放 子组件
     // template: '',
     // 注意： 组件中的 所有 props 中的数据，都是通过 父组件传递给子组件的
     // props 中的数据，都是只读的，无法重新赋值
     props:{
-        color: String,
-        textColor: String,
         icon: String,
         loading: Boolean,
-        circle: Boolean,
         block: Boolean,
         noBorder: Boolean,
         disabled: {
@@ -55,9 +66,33 @@ export default {
             type: Boolean,
             default: false
         },
-        text: Boolean,
+        // text: Boolean,
         iconCircle: Boolean,
         transparent: {
+            type: Boolean,
+            default: false
+        },
+        //链接跳转  适用router-link参数（如果有使用Vue-Router）
+        to:Object,
+        // 窗口打开目标     _blank, _parent,_self, _top,framename 与a标签类似
+        target:String,
+        //是否是圆角
+        round: Boolean,
+        //背景颜色
+        color: String,
+        //文字颜色
+        textColor: String,
+        //是否是矩形-方形
+        square: Boolean,
+        //是否记录浏览记录
+        replace:{
+            type:Boolean,
+            default:false,
+        },
+        //type 类型
+        type:String,
+        //原生控件的type  
+        nativeType:{
             type: Boolean,
             default: false
         }
@@ -70,35 +105,59 @@ export default {
             }
             return false
         },
-        buttonCls() {
+        isHttpLink(){
+            let to=this.to
+            let reg = /^((https|http|ftp|rtsp|mms){0,1}(:\/\/){0,1})www\.(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/;
+            if(typeof(to)==='string'&&reg.test(to)){
+                return true
+            }
+            return false
+        },
+        btnStyle(){
+            let btnStyle= {
+                'background-color':`${this.color}`,
+                'border-color':`${this.color}`,
+                'color':`${this.textColor}`,
+            }
+            console.log(btnStyle)
+            return btnStyle
+        },
+        btnCls() {
             return {
                 [`${prefix}`]: true,
-                [`${prefix}-circle`]: !!this.circle || !!this.iconCircle,
+                [`${prefix}-${this.type}`]: !!this.type,
+                [`${prefix}-round`]: !!this.round || !!this.iconCircle,
+                [`${prefix}-square`]: !!this.square,
+                [`${prefix}-disabled`]: !!this.disabled,
                 [`${prefix}-icon-circle`]: !!this.iconCircle,
-                [`${prefix}-text`]: !!this.text,
+                // [`${prefix}-text`]: !!this.text,
                 [`${prefix}-loading`]: !!this.loading,
                 [`${prefix}-block`]: !!this.block,
-                [`${prefix}-text-${this.textColor}`]: !!this.textColor,
-                [`${prefix}-${this.color}`]: !!this.color,
                 [`${prefix}-${this.size}`]: !!this.size,
                 [`${prefix}-transparent`]: !!this.transparent,
                 [`${prefix}-no-border`]: this.noBorder === true
             }
         },
         iconCode() {
-        return this.loading ? 'h-icon-loading' : this.icon;
+            return this.loading ? 'yo-icon-loading' : this.icon
         },
         iconCls() {
-        const iconCode = this.loading ? 'h-icon-loading' : this.icon;
-        return {
-            [`${iconCode}`]: !!iconCode
-        };
+            const iconCode = this.loading ? 'yo-icon-loading' : this.icon
+            return {
+                [`${iconCode}`]: !!iconCode
+            }
         }
     },
     //存放 方法
     methods: {
-		init(){
-
+		handleClick(evt){
+            if(this.isHttpLink&&this.replace){
+                console.log('handleClick start',this.to)
+                location.replace(this.to)
+                return false
+            }
+            console.log('handleClick end')
+            this.$emit('click',evt)
 		}
 	},
     //存放 过滤器
@@ -121,7 +180,7 @@ export default {
 
 	},
     mounted() { 
-		this.init()
+		
 	},
     //运行期间
     beforeUpdate() {
