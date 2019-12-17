@@ -39,6 +39,13 @@
         <p>{{langKey('不可用按钮')}}</p>
         <yo-button>{{langKey('不可用按钮')}}</yo-button>
         <yo-button disabled>{{langKey('不可用按钮')}}(disabled)</yo-button>
+
+
+        <p>{{langKey('图标按钮')}}</p>
+        <yo-button icon="search">{{langKey('图标按钮')}}</yo-button>
+        <yo-button icon="eye">{{langKey('图标按钮')}}</yo-button>
+        <yo-button loading>{{langKey('图标按钮')}}</yo-button>
+
         <!-- <h3>{{langKey('基础用法')}}</h3> -->
         <yo-anchor :text="langKey('代码示例')"></yo-anchor>
         <yo-anchor :text="langKey('基础用法')"></yo-anchor>

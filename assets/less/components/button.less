@@ -24,6 +24,17 @@
     &+.@{button-prefix}{
         .ml(10);
     }
+    .yo-font{
+        .dib;
+        .fz(15);
+        &.yoloading{
+            .anime(rotate-inf 1.6s linear infinite);
+        }
+    }
+    .keyframes(rotate-inf; {
+    	0%   { .rotate(0); }
+    	100% { .rotate(720); }
+    });
     &.@{button-prefix}-primary{
         .c(@white);
         .bc(@primary);

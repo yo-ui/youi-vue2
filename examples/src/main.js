@@ -76,6 +76,26 @@ Vue.prototype.loadingShow=function(type,style){
     }
 }
 
+//添加路由
+Vue.prototype.addRouter=function(route){
+    let that=this
+    if(!that.RouterMap){
+        let RouterMap={}
+        let routes=router.options.routes||[]
+        routes.forEach(item=>{
+            RouterMap[item.name]=true
+        })
+        that.RouterMap=RouterMap
+    }else{
+        if(that.RouterMap[route.name]){
+            that.jumpPage(route.name)
+        }else{
+            that.$router.addRoutes([route])
+            that.jumpPage(route.name)
+        }
+    }
+}
+
 
 //全局window.location跳转
 Vue.prototype.openPage = function (url,flag,options={}){

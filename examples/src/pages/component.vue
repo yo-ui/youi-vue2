@@ -17,7 +17,7 @@
                 <h3 class="sub" v-text="langKey('基础组件')"></h3>
                 <ul class="list">
                     <router-link :to="{name:'componentButton'}"><li :class="{'active':code=='componentButton'}">{{langKey('按钮')}}</li></router-link>
-                    <router-link :to="{name:'componentGuide'}"><li :class="{'active':code=='componentGuide5'}">{{langKey('首页')}}</li></router-link>
+                    <router-link :to="{name:'componentIcon'}"><li :class="{'active':code=='componentIcon'}">{{langKey('图标')}}</li></router-link>
                 </ul>
                 <h3 class="sub" v-text="langKey('表单组件')"></h3>
                 <ul class="list">

@@ -3,8 +3,8 @@ const prefix='yo-btn'
 const Props = {
   size: ['l','m', 's', 'xs']
 }
-const template=`<i class="yo-font yo-font-loading" v-if="loading"></i>
-        <i :class="icon" v-if="icon && !loading"></i>
+const template=`<i class="yo-font yoloading" v-if="loading"></i>
+        <i class="yo-font" :class="'yo'+icon" v-if="icon && !loading"></i>
         <template v-if="hasText">
             <slot></slot>
         </template>`
@@ -119,7 +119,7 @@ export default {
                 'border-color':`${this.color}`,
                 'color':`${this.textColor}`,
             }
-            console.log(btnStyle)
+            // console.log(btnStyle)
             return btnStyle
         },
         btnCls() {

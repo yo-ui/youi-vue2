@@ -49,6 +49,15 @@ const Routers = [
             },
             component: () => import(/* webpackChunkName: "exnet-component-button" */ '@/pages/component/basic/button'),
         },
+        //组件-图标组件
+        {
+            path: RouterURL['componentIcon'].path,
+            name: RouterURL['componentIcon'].name,
+            meta: {
+                title: RouterURL['componentIcon'].title,
+            },
+            component: () => import(/* webpackChunkName: "exnet-component-Icon" */ '@/pages/component/basic/icons'),
+        },
     ]
 },
 
