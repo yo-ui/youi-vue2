@@ -15,6 +15,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+[class^='yo-icon-loading']{
+  .anime(rotate-inf 1.6s linear infinite);
+}
+
+.keyframes(rotate-inf; {
+  0%   { .rotate(0); }
+  100% { .rotate(720); }
+});
+
 .yo-icon-warn:before {
   content: "\e663";
 }
@@ -31,7 +40,7 @@
   content: "\e6c9";
 }
 
-.yo-icon--user1:before {
+.yo-icon-user1:before {
   content: "\e607";
 }
 
@@ -259,7 +268,7 @@
   content: "\e614";
 }
 
-.yo-icon--close:before {
+.yo-icon-close:before {
   content: "\e615";
 }
 

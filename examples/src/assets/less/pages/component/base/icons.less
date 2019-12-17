@@ -5,6 +5,15 @@
 **/
 @import "../../../common.less";
 .yo-component-icon-page{
+    .yo-demo{
+        .df;
+        align-items: center;
+        .m(5px auto);
+        &>i{
+            .m(0 20px);
+            .fz(2em);
+        }
+    }
     ul{
         .df;
         align-items: center;
@@ -29,6 +38,10 @@
             justify-content: center;
             i{
                 .fz(40);
+            }
+            &:hover{
+                cursor: pointer;
+                .c(@default);
             }
         }
     }

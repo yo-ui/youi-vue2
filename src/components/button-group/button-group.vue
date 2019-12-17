@@ -4,18 +4,18 @@
  *  按钮组
  */
 <template>
-    <div class="yo-button-group" :class="buttonGroupCls">
+    <div :class="btnGroupCls">
         <slot></slot>
     </div>
 </template>
 <script>
 
-const prefix = 'yo-button-group'
+const prefix = 'yo-btn-group'
 const Props = {
     size: ['l', 's', 'xs']
 };
 export default {
-	name: 'yoButton-group',
+	name: 'yo-button-group',
 	//存放 数据
     data: function () {
         return {
@@ -32,6 +32,8 @@ export default {
             type:Boolean,
             default:false
         },
+        //是否垂直
+        vertical:Boolean,
         size: {
             type: String,
             validator(value) {
@@ -40,10 +42,11 @@ export default {
         }
 	}, // 把父组件传递过来的 parentmsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据
     computed: {
-        buttonGroupCls() {
+        btnGroupCls() {
             return {
                 [`${prefix}`]: true,
                 [`${prefix}-circle`]: !!this.circle,
+                [`${prefix}-vertical`]: !!this.vertical,
                 [`${prefix}-${this.size}`]: !!this.size
             }
         }

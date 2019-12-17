@@ -3,11 +3,13 @@ const prefix='yo-btn'
 const Props = {
   size: ['l','m', 's', 'xs']
 }
-const template=`<i class="yo-font yoloading" v-if="loading"></i>
-        <i class="yo-font" :class="'yo'+icon" v-if="icon && !loading"></i>
+const template=`<slot name="left"></slot><i :class="'yo-icon-'+loadingName" v-if="loading"></i>
+        <i :class="'yo-icon-'+icon" v-if="icon && !loading"></i>
         <template v-if="hasText">
             <slot></slot>
-        </template>`
+        </template>
+        <i :class="'yo-icon-'+rightIcon" v-if="rightIcon && !loading"></i>
+        <slot name="right"></slot>`
 export default {
 	name: 'yoButton',
 	//存放 数据
@@ -20,17 +22,17 @@ export default {
     `):
     **/
     template:`
-        <a :href="typeof(to)=='string'?to:to.name" :class="btnCls" :style="btnStyle"
+        <a :href="typeof(to)=='string'?to:to.name" class="yo-btn" :class="btnCls" :style="btnStyle"
         :target="target" @click="handleClick"
         :disabled="disabled || loading" v-if="isHttpLink">
             ${template}
         </a>
-        <router-link :replace="replace" :to="to" :style="btnStyle"
+        <router-link :replace="replace" :to="to" class="yo-btn" :style="btnStyle"
         :target="target" v-else-if="to&&$route" 
         :class="btnCls" :disabled="disabled || loading">
             ${template}
         </router-link>
-        <button
+        <button class="yo-btn"
         @click="handleClick" :style="btnStyle"
         :disabled="disabled || loading"
         :type="nativeType"
@@ -45,7 +47,10 @@ export default {
     // props 中的数据，都是只读的，无法重新赋值
     props:{
         icon: String,
-        loading: Boolean,
+        rightIcon: String,
+        loading: {
+            type:Boolean,
+        },
         block: Boolean,
         noBorder: Boolean,
         disabled: {
@@ -66,6 +71,10 @@ export default {
             type: Boolean,
             default: false
         },
+        loadingName:{
+            type:String,
+            default:'loading',
+        },
         // text: Boolean,
         iconCircle: Boolean,
         transparent: {
@@ -78,6 +87,8 @@ export default {
         target:String,
         //是否是圆角
         round: Boolean,
+        //是否是圆形
+        circle: Boolean,
         //背景颜色
         color: String,
         //文字颜色
@@ -124,9 +135,10 @@ export default {
         },
         btnCls() {
             return {
-                [`${prefix}`]: true,
+                [`${prefix}-default`]: !this.type,
                 [`${prefix}-${this.type}`]: !!this.type,
-                [`${prefix}-round`]: !!this.round || !!this.iconCircle,
+                [`${prefix}-circle`]: !!this.circle,
+                [`${prefix}-round`]: !!this.round,
                 [`${prefix}-square`]: !!this.square,
                 [`${prefix}-disabled`]: !!this.disabled,
                 [`${prefix}-icon-circle`]: !!this.iconCircle,
@@ -180,7 +192,7 @@ export default {
 
 	},
     mounted() { 
-		
+		console.log('------------',this.loading)
 	},
     //运行期间
     beforeUpdate() {
