@@ -12,8 +12,8 @@ import YOUI from './../../src/index'
 import './../../assets/less/themes/default/index.less'
 import 'highlight.js/styles/github-gist.css'
 import vueHighlightjs from '@/common/plugins/vue-highlightjs'
-const yoCode=() => import(/* webpackChunkName: "exnet-component-code" */ '@com/common/yo-code')
-const yoAnchor=() => import(/* webpackChunkName: "exnet-component-code" */ '@com/common/yo-anchor')
+const yoCode=() => import(/* webpackChunkName: "yo-component-code" */ '@com/common/yo-code')
+const yoAnchor=() => import(/* webpackChunkName: "yo-component-code" */ '@com/common/yo-anchor')
 
 const defaultImage = '/static/images/default.png'
 if (process.env.NODE_ENV === 'production') {

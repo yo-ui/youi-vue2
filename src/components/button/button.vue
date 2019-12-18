@@ -83,10 +83,14 @@ export default {
         },
         //链接跳转  适用router-link参数（如果有使用Vue-Router）
         to:Object,
+        //朴素简单按钮
+        to:Object,
         // 窗口打开目标     _blank, _parent,_self, _top,framename 与a标签类似
         target:String,
         //是否是圆角
         round: Boolean,
+        //是否为朴素按钮
+        plain: Boolean,
         //是否是圆形
         circle: Boolean,
         //背景颜色
@@ -146,6 +150,7 @@ export default {
                 [`${prefix}-loading`]: !!this.loading,
                 [`${prefix}-block`]: !!this.block,
                 [`${prefix}-${this.size}`]: !!this.size,
+                [`${prefix}-plain`]: !!this.plain,
                 [`${prefix}-transparent`]: !!this.transparent,
                 [`${prefix}-no-border`]: this.noBorder === true
             }

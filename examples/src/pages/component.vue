@@ -38,7 +38,7 @@
     export default {
         name: 'yo-component-page',
         components: { //组件传入
-            yoHeader:() => import(/* webpackChunkName: "exnet-component-header" */ '@com/common/yo-header'),
+            yoHeader:() => import(/* webpackChunkName: "yo-component-header" */ '@com/common/yo-header'),
         },
         data() {
             return {

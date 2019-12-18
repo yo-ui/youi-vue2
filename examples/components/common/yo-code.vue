@@ -1,4 +1,4 @@
-<!--组件 demo -->
+<!--高亮显示代码组件 -->
 <template>
     <div class="yo-code-com">
         <pre v-highlightjs="sourceCode"><code :class="type"></code></pre>
@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import yoCommon from '@/common/common'
+    // import yoCommon from '@/common/common'
     export default {
         name: 'yo-code-com',
         data() {

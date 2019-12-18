@@ -280,7 +280,7 @@ Vue.use(Button);
     export default {
         name: 'fq-develop-guide-page',
         components: { //组件传入
-            // yoCode:() => import(/* webpackChunkName: "exnet-component-code" */ '@com/common/yo-code'),
+            // yoCode:() => import(/* webpackChunkName: "yo-component-code" */ '@com/common/yo-code'),
         },
         data() {
             return {
