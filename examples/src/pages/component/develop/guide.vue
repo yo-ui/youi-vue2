@@ -14,7 +14,7 @@
 <yo-code>
 import Vue from 'vue';
 import YOUI from 'youi';
-import 'youi/lib/theme-chalk/index.css';
+import 'youi/lib/default/index.css';
 import App from './App.vue';
 Vue.use(YOUI);
 new Vue({

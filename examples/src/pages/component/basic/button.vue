@@ -3,86 +3,23 @@
     <div class="yo-component-button-page">
         <!-- <h1 :id="'Button'+langKey('按钮')"><a :href="'#'+'Button'+langKey('按钮')" class="yo-font yolianjie"></a>{{'Button'+langKey('按钮')}}</h1> -->
         <yo-anchor :text="'Button'+langKey('按钮')" size="18"></yo-anchor>
-        <p>{{langKey('常用的操作按钮。')}}</p>
-        <yo-button>Default</yo-button>
-        <yo-button type="primary">Primary</yo-button>
-        <yo-button type="dashed">Dashed</yo-button>
-        <yo-button type="text">Text</yo-button>
-        <yo-button type="info">Info</yo-button>
-        <yo-button type="success">Success</yo-button>
-        <yo-button type="warning">Warning</yo-button>
-        <yo-button type="error">Error</yo-button>
-        <p>{{langKey('朴素简单按钮')}}</p>
-        <yo-button plain>Default</yo-button>
-        <yo-button plain type="primary">Primary</yo-button>
-        <yo-button plain type="dashed">Dashed</yo-button>
-        <yo-button plain type="text">Text</yo-button>
-        <yo-button plain type="info">Info</yo-button>
-        <yo-button plain type="success">Success</yo-button>
-        <yo-button plain type="warning">Warning</yo-button>
-        <yo-button plain type="error">Error</yo-button>
-        <p>{{langKey('圆角按钮')}}</p>
-        <yo-button round>Default</yo-button>
-        <yo-button round type="primary">Primary</yo-button>
-        <yo-button round type="dashed">Dashed</yo-button>
-        <yo-button round type="text">Text</yo-button>
-        <yo-button round type="info">Info</yo-button>
-        <yo-button round type="success">Success</yo-button>
-        <yo-button round type="warning">Warning</yo-button>
-        <yo-button round type="error">Error</yo-button>
-        <p>{{langKey('方形按钮')}}</p>
-        <yo-button square>Default</yo-button>
-        <yo-button square type="primary">Primary</yo-button>
-        <yo-button square type="dashed">Dashed</yo-button>
-        <yo-button square type="text">Text</yo-button>
-        <yo-button square type="info">Info</yo-button>
-        <yo-button square type="success">Success</yo-button>
-        <yo-button square type="warning">Warning</yo-button>
-        <yo-button square type="error">Error</yo-button>
-        <p>{{langKey('圆形按钮')}}</p>
-        <yo-button circle icon="search"></yo-button>
-        <yo-button circle type="primary" icon="edit"></yo-button>
-        <yo-button circle type="dashed" icon="remove"></yo-button>
-        <yo-button circle type="info" icon="info"></yo-button>
-        <yo-button circle type="success" icon="success"></yo-button>
-        <yo-button circle type="warning" icon="warn"></yo-button>
-        <yo-button circle type="error" icon="network-error"></yo-button>
-        <p>{{langKey('透明按钮')}}</p>
-        <section style="background:#eee;padding:10px;">
-            <yo-button transparent>{{langKey('透明按钮')}}</yo-button>
-        </section>
-        <p>{{langKey('无边框按钮')}}</p>
-        <yo-button no-border>{{langKey('无边框按钮')}}</yo-button>
-        <yo-button no-border plain>{{langKey('无边框按钮')}}</yo-button>
+
+        <yo-anchor :text="langKey('基本用法')" size="18"></yo-anchor>        
+        <yo-example root="/components/demos/" demo="basic/button/button1" ext=".vue"></yo-example>        
+        
 
         <p>{{langKey('带有跳转的按钮')}}</p>
-        <yo-button to="http://www.baidu.com/">{{langKey('跳转到百度')}}</yo-button>
-        <yo-button to="http://www.baidu.com/" type="text">{{langKey('跳转到百度')}}</yo-button>
-        <yo-button to="http://www.baidu.com/" type="text" replace>{{langKey('不保存历史的跳转')}}</yo-button>
-        <yo-button :to="{name:'componentGuide'}" replace>{{langKey('跳转到入门')}}</yo-button>
+        <yo-example root="/components/demos/" demo="basic/button/button2" ext=".vue"></yo-example>        
+        
 
         <p>{{langKey('不同颜色的按钮')}}</p>
-        <yo-button color="red" textColor="white">{{langKey('不同颜色的按钮')}}</yo-button>
-        <yo-button textColor="red">{{langKey('跳转到百度')}}</yo-button>
+        <yo-example root="/components/demos/" demo="basic/button/button3" ext=".vue"></yo-example> 
 
         <p>{{langKey('按钮样式')}}</p>
-        <yo-button round>{{langKey('圆角按钮')}}</yo-button>
-        <yo-button circle>{{langKey('圆形按钮')}}</yo-button>
-        <yo-button square>{{langKey('方形按钮')}}</yo-button>
+        <yo-example root="/components/demos/" demo="basic/button/button4" ext=".vue"></yo-example> 
 
         <p>{{langKey('按钮大小')}}</p>
-        <yo-button size="l">{{langKey('大型按钮')}}</yo-button>
-        <yo-button>{{langKey('默认按钮')}}</yo-button>
-        <yo-button size="m">{{langKey('中等按钮')}}</yo-button>
-        <yo-button size="s">{{langKey('小型按钮')}}</yo-button>
-        <yo-button size="xs">{{langKey('超小按钮')}}</yo-button>
-        <br>
-        <br>
-        <yo-button size="l" round>{{langKey('大型按钮')}}</yo-button>
-        <yo-button round>{{langKey('默认按钮')}}</yo-button>
-        <yo-button size="m" round>{{langKey('中等按钮')}}</yo-button>
-        <yo-button size="s" round>{{langKey('小型按钮')}}</yo-button>
-        <yo-button size="xs" round>{{langKey('超小按钮')}}</yo-button>
+        <yo-example root="/components/demos/" demo="basic/button/button5" ext=".vue"></yo-example> 
 
         <p>{{langKey('长按钮')}}</p>
         <yo-button block>{{langKey('默认按钮')}}</yo-button>

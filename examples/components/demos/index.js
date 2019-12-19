@@ -1,9 +1,9 @@
 export default{
     // 'basicExtend1': () => require.ensure([], require => require('./basic/extend1.vue'), 'basic'),
-    'basicButton1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button1'),
-    'basicButton2': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button2'),
-    'basicButton3': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button3'),
-    'basicButton4': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button4'),
-    'basicButton5': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button5'),
-    'basicButton6': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button6'),
+    'basicButtonButton1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button1'),
+    'basicButtonButton2': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button2'),
+    'basicButtonButton3': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button3'),
+    'basicButtonButton4': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button4'),
+    'basicButtonButton5': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button5'),
+    'basicButtonButton6': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button6'),
 }

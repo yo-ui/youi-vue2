@@ -69,16 +69,6 @@ async function request(type,options,callback){
     if(retry){
         headers['retry']=1
     }
-    // if(!!needAPIkey){
-    //     if(Constants.PIZZA.APIKEY){
-    //         headers['X-MBX-APIKEY']=Constants.PIZZA.APIKEY
-    //     }
-    // }
-    // if(!!needAPPId){
-    //     if(Constants.PIZZA.APIKEY){
-    //         headers['appid']=Constants.PIZZA.APIKEY
-    //     }
-    // }
     if(store){
         let userInfo=store.getters.getUserInfo
         let token=userInfo?userInfo.token:''
@@ -86,15 +76,6 @@ async function request(type,options,callback){
             if(token){
                 headers[Constants.AUTHORIZATION]=token
             }
-        }
-        // if(!!coinpayNeedToken){
-        //     if(token){
-        //         headers[Constants.COINPAYAUTHORIZATION]=(token||'').replace('Bearer ','')
-        //     }
-        // }
-        if(!params.langKey){
-            params.langKey=store.state.lang
-            params.langKey=store.state.lang=="ZH-CN"?"ZH-CN":"EN" //by cici
         }
     }
     if(params.langKey){
@@ -115,29 +96,14 @@ async function request(type,options,callback){
         data=await postFunc(url,params,headers,callback)
     }
 
-    // if(!noProgress){
-    //     mprogress.end()
-    //     // nanobar_axios.go(100)
+    // if(data){
+    //     let result=data.data
+    //     if(result&&result.code=='02_01_0_001_01_009'){//需要登录授权
+    //         store.commit('setUserInfo')
+    //         vm&&vm.jumpLogin()
+    //         return data
+    //     }
     // }
-    if(data){
-        let result=data.data
-        if(result&&result.code=='02_01_0_001_01_009'){//需要登录授权
-            store.commit('setUserInfo')
-            vm&&vm.jumpLogin()
-            return data
-        }
-
-        // if(!outApi){
-        //     if(result&&result.err!==0){
-        //         if(vm){
-        //             vm.$message({
-        //                 message: vm.langKey(result.msg),
-        //                 type: 'error'
-        //             })
-        //         }
-        //     }
-        // }
-    }
     //判断返回值处理
     return data
 }
@@ -170,8 +136,6 @@ async function putFunc(url,params,headers,callback){
  */
 async function delFunc(url,params,headers,callback){
     return await axios.patch(url,Qs.stringify(params),{
-        // params:params,
-        // data:params,
         headers:headers,
         timeout:Constants.AXIOTIMEOUT,
     })    

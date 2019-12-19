@@ -59,7 +59,7 @@ export default {
             if (reverse) {
                 slots = slots.reverse()
             }
-            console.log('------------',slots)
+            // console.log('------------',slots)
 		}
 	},
     //存放 过滤器

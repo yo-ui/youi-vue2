@@ -13,7 +13,8 @@ import './../../assets/less/themes/default/index.less'
 import 'highlight.js/styles/github-gist.css'
 import vueHighlightjs from '@/common/plugins/vue-highlightjs'
 const yoCode=() => import(/* webpackChunkName: "yo-component-code" */ '@com/common/yo-code')
-const yoAnchor=() => import(/* webpackChunkName: "yo-component-code" */ '@com/common/yo-anchor')
+const yoAnchor=() => import(/* webpackChunkName: "yo-component-anchor" */ '@com/common/yo-anchor')
+const yoExample=() => import(/* webpackChunkName: "yo-component-example" */ '@com/common/yo-example')
 
 const defaultImage = '/static/images/default.png'
 if (process.env.NODE_ENV === 'production') {
@@ -29,6 +30,7 @@ Vue.use(YOUI)
 //全局组件定义
 Vue.component('yoCode', yoCode)
 Vue.component('yoAnchor', yoAnchor)
+Vue.component('yoExample', yoExample)
 
 //只支持以VUE_APP_开头的变量
 Vue.prototype.IMAGE_SERVER=process.env.VUE_APP_IMAGE_SERVER

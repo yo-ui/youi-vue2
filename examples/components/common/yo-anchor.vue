@@ -1,5 +1,5 @@
 <template>
-    <h1 class="yo-anchor-com" :style="style" :id="text">{{text}}<a :href="'#'+text" class="yo-font yolianjie"></a></h1>
+    <h1 class="yo-anchor-com" :style="style" :id="text">{{text}}<a :href="'#'+text" class="yo-icon-link"></a></h1>
 </template>
 <script>
 export default {

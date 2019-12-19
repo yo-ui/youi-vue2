@@ -197,7 +197,7 @@ export default {
 
 	},
     mounted() { 
-		console.log('------------',this.loading)
+		// console.log('------------',this.loading)
 	},
     //运行期间
     beforeUpdate() {

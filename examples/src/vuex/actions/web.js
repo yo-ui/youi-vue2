@@ -5,10 +5,11 @@ export default {
     //费率获取
     async getContent(context,{url,params}){
         const data= await get({
-            url:options.url,
+            url:url,
             params:params,
             store:context
         })
+        // console.log(data.data)
         return data
     },    
 }

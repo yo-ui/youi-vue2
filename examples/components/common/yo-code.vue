@@ -40,13 +40,15 @@
             getContent(){
                 let that=this
                 if(that.src){
-                    that.sourceCode= that.$store.dispatch('getContent',{url:src,params:{}})
+                    that.$store.dispatch('getContent',{url:that.src,params:{}}).then(({data})=>{
+                        that.sourceCode=data
+                    })
                 }else if(that.content){
                     that.sourceCode= that.content
                 }else if(that.$slots.default) {
                     that.sourceCode= that.$slots.default[0].text.trim()
                 }
-                return ''
+                // console.error(that.sourceCode)
             }
         }
     }

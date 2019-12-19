@@ -287,7 +287,23 @@
             </li>
             <li>
                 <i class="yo-icon-search"></i>
-                yo-icon-eye
+                yo-icon-search
+            </li>
+            <li>
+                <i class="yo-icon-code"></i>
+                yo-icon-code
+            </li>
+            <li>
+                <i class="yo-icon-copy"></i>
+                yo-icon-copy
+            </li>
+            <li>
+                <i class="yo-icon-down"></i>
+                yo-icon-down
+            </li>
+            <li>
+                <i class="yo-icon-up"></i>
+                yo-icon-up
             </li>
         </ul>
     </div>

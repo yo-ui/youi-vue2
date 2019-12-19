@@ -9,7 +9,7 @@ var webpack = require('webpack')
 // const BrotliPlugin = require("brotli-webpack-plugin");//brotli压缩
 // const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; //Webpack包文件分析器
-// const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 // var vueLoaderConfig = require('./vue-loader.conf')
 console.log(`      
 *        ┏┓   ┏┓+ +
@@ -67,7 +67,11 @@ module.exports = {
           new webpack.ProvidePlugin({
             jQuery: "jquery",
             $: "jquery",
-          })
+          }),
+          new CopyWebpackPlugin([
+            { from: 'components/**/*' },
+            { from: 'components_en/**/*'},
+          ])
         ]
         //生产and测试环境
 		let pluginsPro = [

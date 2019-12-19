@@ -5,9 +5,13 @@
 **/
 @import "../common.less";
 .yo-component-page{
+    .flex-content{
+        .bort(1px solid @default-plain);
+    }
     .yo-left{
         min-width: 200px;
         // .tc;
+        .borr(1px solid @default-plain);
         img{
             .w(250);
         }
@@ -41,6 +45,7 @@
     .yo-right{
         .flex(1);
         .pl(20);
+        .pr(20);
         // .ml(20);
         .borr(1px solid @border);
         p{
