@@ -75,6 +75,7 @@ if (moduleName === undefined) {
 
 let params = {
     name: name,
+    moduleName: moduleName,
     lowerName: name.toLowerCase(),
 	upperName: name.slice(0, 1).toUpperCase() + name.slice(1),
 	author:'eric',
@@ -92,7 +93,7 @@ const files = [
 	}, 
 	{
 		template: './build/template/demo-less.ejs',
-		path: `examples/src/assets/less/pages/component/${moduleName}/${params.lowerName}.less`
+		path: `examples/src/assets/less/pages/components/${moduleName}/${params.lowerName}.less`
 	}, 
 	{
 		template: './build/template/index.ejs',
@@ -104,11 +105,11 @@ const files = [
 	}, 
 	{
 		template: './build/template/doc.ejs',
-		path: `examples/src/pages/component/${moduleName}/${params.lowerName}.vue`
+		path: `examples/src/pages/components/${moduleName}/${params.lowerName}.vue`
 	}, 
 	{
 		template: './build/template/doc_en.ejs',
-		path: `examples/src/pages/component_en/${moduleName}/${params.lowerName}.vue`
+		path: `examples/src/pages/components_en/${moduleName}/${params.lowerName}.vue`
 	}, 
 	{
 		template: './build/template/demo.ejs',
@@ -132,7 +133,7 @@ const paths = [
   `src/components/${moduleName}`,
   `assets/less/components/${moduleName}`,
   `examples/components/demos/${moduleName}`,
-  `examples/src/assets/less/pages/component/${moduleName}`,
+  `examples/src/assets/less/pages/components/${moduleName}`,
   `examples/components_en/demos/${moduleName}`
 ]
 
@@ -142,7 +143,9 @@ for (let p of paths) {
         fs.mkdirSync(p,{recursive: true }, (err) => {
             if (err) {
                 console.error(error.message)
-            }
+            }else{
+				console.warn(p,'创建成功')
+			}
         })
     } catch (error) {
         console.error(error.message)

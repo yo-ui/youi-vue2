@@ -3,8 +3,8 @@
  *  created at:2019-12-12
  *  按钮组件
 */
-import YoButton from './components/button'
-import YoButtonGroup from './components/button-group'
+import YoButton from './components/basic/button'
+import YoButtonGroup from './components/basic/button-group'
 const components = [
 	YoButton,
 	YoButtonGroup,
