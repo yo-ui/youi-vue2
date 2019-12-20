@@ -11,7 +11,12 @@ const template=`<slot name="left"></slot><i :class="'yo-icon-'+loadingName" v-if
         <i :class="'yo-icon-'+rightIcon" v-if="rightIcon && !loading"></i>
         <slot name="right"></slot>`
 export default {
-	name: 'yoButton',
+    name: 'yoButton',    
+    inject:{
+        yoButtonGroup:{
+            default:'',
+        }
+    },
 	//存放 数据
     data: function () {
         return {
@@ -137,6 +142,9 @@ export default {
             // console.log(btnStyle)
             return btnStyle
         },
+        btnSize(){
+            return this.size||(this.yoButtonGroup||{}).size||this.$YOUI.size
+        },
         btnCls() {
             return {
                 [`${prefix}-default`]: !this.type,
@@ -149,7 +157,7 @@ export default {
                 // [`${prefix}-text`]: !!this.text,
                 [`${prefix}-loading`]: !!this.loading,
                 [`${prefix}-block`]: !!this.block,
-                [`${prefix}-${this.size}`]: !!this.size,
+                [`${prefix}-${this.btnSize}`]: !!this.btnSize,
                 [`${prefix}-plain`]: !!this.plain,
                 [`${prefix}-transparent`]: !!this.transparent,
                 [`${prefix}-no-border`]: this.noBorder === true

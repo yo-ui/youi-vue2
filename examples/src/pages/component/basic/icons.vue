@@ -310,6 +310,6 @@
 </template>
 
 <style lang="less">
-    @import "../../../assets/less/pages/component/base/icons.less";
+    @import "../../../assets/less/pages/components/basic/icons/icons.less";
 </style>
 

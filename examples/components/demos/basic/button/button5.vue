@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>{{langKey('按钮大小')}}</p>
       <yo-button-group>
             <yo-button :class="{'active':btnSize=='l'}" @click="switchSize('l')">{{langKey('大型按钮')}}</yo-button>
             <yo-button :class="{'active':btnSize==''}" @click="switchSize('')">{{langKey('默认按钮')}}</yo-button>

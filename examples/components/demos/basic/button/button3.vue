@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>{{langKey('不同颜色的按钮')}}</p>
      <yo-button color="red" textColor="white">{{langKey('不同颜色的按钮')}}</yo-button>
       <yo-button textColor="red">{{langKey('跳转到百度')}}</yo-button>
   </div>

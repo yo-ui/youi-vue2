@@ -15,7 +15,13 @@ const Props = {
     size: ['l', 's', 'xs']
 };
 export default {
-	name: 'yo-button-group',
+    name: 'yo-button-group',
+    //提供给子组件使用
+    provide() {
+        return {
+            yoButtonGroup: this
+        };
+    },
 	//存放 数据
     data: function () {
         return {

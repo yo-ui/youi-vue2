@@ -88,47 +88,52 @@ let options={
 const files = [
 	{
 		template: './build/template/less.ejs',
-		path: `assets/less/components/${params.lowerName}.less`
+		path: `assets/less/components/${moduleName}/${params.lowerName}.less`
+	}, 
+	{
+		template: './build/template/demo-less.ejs',
+		path: `examples/src/assets/less/pages/component/${moduleName}/${params.lowerName}.less`
 	}, 
 	{
 		template: './build/template/index.ejs',
-		path: `src/components/${params.lowerName}/index.js`
+		path: `src/components/${moduleName}/${params.lowerName}/index.js`
 	},
 	{
 		template: './build/template/component.ejs',
-		path: `src/components/${params.lowerName}/${params.lowerName}.vue`
+		path: `src/components/${moduleName}/${params.lowerName}.vue`
 	}, 
 	{
 		template: './build/template/doc.ejs',
-		path: `examples/components/component/${moduleName}/${params.lowerName}.vue`
+		path: `examples/src/pages/component/${moduleName}/${params.lowerName}.vue`
 	}, 
 	{
 		template: './build/template/doc_en.ejs',
-		path: `examples/components_en/component/${moduleName}/${params.lowerName}.vue`
+		path: `examples/src/pages/component_en/${moduleName}/${params.lowerName}.vue`
 	}, 
 	{
 		template: './build/template/demo.ejs',
-		path: `examples/components/demos/${params.lowerName}/${params.lowerName}1.vue`
+		path: `examples/components/demos/${moduleName}/${params.lowerName}1.vue`
 	}, 
 	{
 		template: './build/template/demo.ejs',
-		path: `examples/components/demos/${params.lowerName}/${params.lowerName}2.vue`
+		path: `examples/components/demos/${moduleName}/${params.lowerName}2.vue`
 	}, 
 	{
 		template: './build/template/demo.ejs',
-		path: `examples/components_en/demos/${params.lowerName}/${params.lowerName}1.vue`
+		path: `examples/components_en/demos/${moduleName}/${params.lowerName}1.vue`
 	},
 	{
 		template: './build/template/demo.ejs',
-		path: `examples/components_en/demos/${params.lowerName}/${params.lowerName}2.vue`
+		path: `examples/components_en/demos/${moduleName}/${params.lowerName}2.vue`
 	}
 ]
 
 const paths = [
-  `src/components/${params.lowerName}`,
-  `assets/less/components`,
-  `examples/components/demos/${params.lowerName}`,
-  `examples/components_en/demos/${params.lowerName}`
+  `src/components/${moduleName}`,
+  `assets/less/components/${moduleName}`,
+  `examples/components/demos/${moduleName}`,
+  `examples/src/assets/less/pages/component/${moduleName}`,
+  `examples/components_en/demos/${moduleName}`
 ]
 
 for (let p of paths) {
@@ -159,3 +164,10 @@ for (let f of files) {
         }
     })
 }
+
+
+//demo
+// node build/template.js button-group button-group
+// node build/template.js button button
+// node build/template.js button basic/button
+ 

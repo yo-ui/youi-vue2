@@ -1,16 +1,16 @@
 /**
  *  author: eric
- *  create at: 2019-12-12 15:42:55
+ *  create at: 2019-12-20 17:07:34
  */
 <template>
     
-        <div class="yo-button-test">
+        <div class="yo-grid-test">
         </div>
     
 </template>
 <script>
 export default {
-	name: 'yoButtonTest',
+	name: 'yoGridTest',
 	//存放 数据
     data: function () {
         return {

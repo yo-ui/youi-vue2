@@ -14,6 +14,11 @@ const install = function(Vue, opts = {}) {
 	components.forEach(component => {
 		Vue.component(component.name, component)
 	})
+	let config=opts.config||{}
+	Vue.prototype.$YOUI={
+		size:config.size|'',//组件大小
+		zIndex:config.zIndex||1000,//弹出框索引
+	}
 }
 
 /* istanbul ignore if */
