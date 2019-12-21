@@ -6,5 +6,16 @@
 @grid-prefix: ~"@{prefix}component-grid";
 
 .@{grid-prefix}-page{
-    
+    .yo-row{
+        .mb(15);
+		.yo-col{
+            .bc(@default-plain);
+            .p(8px 0);
+            .br(4px);
+            .tc;
+            &:nth-child(odd){
+                .bc(@default-bc);
+            }
+		}
+	}
 }

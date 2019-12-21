@@ -3,7 +3,7 @@
  *  create at: 2019-12-21 13:26:02
  */
 <template>
-    <div class="yo-row" :class="rowClasses"
+    <div :class="rowClasses"
        :style="rowStyles">
         <slot></slot>
     </div>
@@ -49,11 +49,17 @@ export default {
                 return Props.direction.indexOf(value) != -1;
             }
         },
-        space: {
+        gutter: {
             type: Number,
             default: 0
         },
-	}, // 把父组件传递过来的 parentmsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据
+    }, // 把父组件传递过来的 parentmsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据
+    //提供给子组件使用
+    provide() {
+        return {
+            yoRow: this
+        };
+    },
     computed: {
         rowClasses() {
             return [{

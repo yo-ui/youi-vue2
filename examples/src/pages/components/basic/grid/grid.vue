@@ -10,7 +10,7 @@
 		<yo-example root="/components/demos/" demo="basic/grid/grid1" ext=".vue"></yo-example>
 
 		<h3>其他</h3>
-		<yo-example root="/components/demos/" demo="basic/grid/grid1" ext=".vue"></yo-example>
+		<yo-example root="/components/demos/" demo="basic/grid/grid2" ext=".vue"></yo-example>
 
 		<h3>Grid 参数</h3>
 		<table class="table">
@@ -62,6 +62,6 @@
 		</table>
   	</div>
 </template>
-<style lang="less" scoped>
+<style lang="less">
 	@import "../../../../assets/less/pages/components/basic/grid/grid.less";
 </style>
