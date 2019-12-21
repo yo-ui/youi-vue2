@@ -37,9 +37,18 @@ const Routers = [
             meta: {
                 title: RouterURL['componentGuide'].title,
             },
-            component: () => import(/* webpackChunkName: "yo-component-guide" */ '@/pages/components/develop/guide'),
+            component: () => import(/* webpackChunkName: "yo-component-guide" */ '@/pages/components/develop/guide/guide'),
         },
 
+        //组件-栅格组件
+        {
+            path: RouterURL['componentGrid'].path,
+            name: RouterURL['componentGrid'].name,
+            meta: {
+                title: RouterURL['componentGrid'].title,
+            },
+            component: () => import(/* webpackChunkName: "yo-component-grid" */ '@/pages/components/basic/grid/grid'),
+        },
         //组件-基础组件
         {
             path: RouterURL['componentButton'].path,
@@ -47,7 +56,7 @@ const Routers = [
             meta: {
                 title: RouterURL['componentButton'].title,
             },
-            component: () => import(/* webpackChunkName: "yo-component-button" */ '@/pages/components/basic/button'),
+            component: () => import(/* webpackChunkName: "yo-component-button" */ '@/pages/components/basic/button/button'),
         },
         //组件-图标组件
         {
@@ -56,7 +65,7 @@ const Routers = [
             meta: {
                 title: RouterURL['componentIcon'].title,
             },
-            component: () => import(/* webpackChunkName: "yo-component-Icon" */ '@/pages/components/basic/icons'),
+            component: () => import(/* webpackChunkName: "yo-component-Icon" */ '@/pages/components/basic/icons/icons'),
         },
     ]
 },

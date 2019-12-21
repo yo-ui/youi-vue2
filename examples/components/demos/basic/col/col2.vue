@@ -1,10 +1,10 @@
 /**
  *  author: eric
- *  create at: 2019-12-20 17:26:03
+ *  create at: 2019-12-21 12:30:36
  */
 <template>
 	<div>
-		<yo-grid2></yo-grid2>
+		<yo-col></yo-col>
 	</div>
 </template>
 <script>
@@ -17,5 +17,5 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-	@import "../../../assets/less/pages/component/basic/grid2/grid2.less";
+	@import "../../../assets/less/pages/component/basic/col/col.less";
 </style>

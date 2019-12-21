@@ -261,32 +261,13 @@
             .borc(@border-disabled);
         }
     }
-    // &:hover:not(.@{button-prefix}-disabled){
-    //     opacity:.8;
-    //     .box-s(0 1px 3px 0 @grayC);
-    //     &.@{button-prefix}-text{
-    //         .box-s(none);
-    //     }
-    // }
 }
 .@{button-prefix}-group:not(.@{button-prefix}-group-vertical){
     .@{button-prefix}{
         .posr;
-        // .df;
-        // align-items: center;
         .ml(-1);
-        // .tranf(translate(-1px,0));
         vertical-align: middle;
-        // &::before{
-        //     content:'';
-        //     left:0;
-        //     .h(100%);
-        //     top:0;
-        //     .bc(@white);
-        //     .w(1);
-        // }
         &.@{button-prefix}-default{
-            // .ml(-1);
             .borc(@border);
             &:hover{
                 .borc(@default-plain);
@@ -294,6 +275,18 @@
         }
         &.@{button-prefix}-primary{
             .borc(@primary-border);
+        }
+        &.@{button-prefix}-info{
+            .borc(@info-border);
+        }
+        &.@{button-prefix}-success{
+            .borc(@success-border);
+        }
+        &.@{button-prefix}-warning{
+            .borc(@warning-border);
+        }
+        &.@{button-prefix}-error{
+            .borc(@error-border);
         }
         &:first-child{
             .br-right(0);
@@ -315,8 +308,6 @@
         .mt(-1);
         .ml(0);
         .posr;
-        // .borc(@white);
-        // .box-s(0 1px 1px 1px @grayE);
         .p(10px);
         &:first-child{
             .br-bottom(0);
@@ -333,6 +324,18 @@
         }
         &.@{button-prefix}-primary{
             .borc(@primary-border);
+        }
+        &.@{button-prefix}-info{
+            .borc(@info-border);
+        }
+        &.@{button-prefix}-success{
+            .borc(@success-border);
+        }
+        &.@{button-prefix}-warning{
+            .borc(@warning-border);
+        }
+        &.@{button-prefix}-error{
+            .borc(@error-border);
         }
         &:not(:last-child):not(:first-child){
             .br(0);

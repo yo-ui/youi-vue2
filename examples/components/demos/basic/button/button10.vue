@@ -12,6 +12,30 @@
             <yo-button type="primary" icon="remove"></yo-button>
             <yo-button type="primary" icon="refresh"></yo-button>
         </yo-button-group>
+        <yo-button-group size="l">
+            <yo-button type="info" icon="add"></yo-button>
+            <yo-button type="info" icon="edit"></yo-button>
+            <yo-button type="info" icon="remove"></yo-button>
+            <yo-button type="info" icon="refresh"></yo-button>
+        </yo-button-group>
+        <yo-button-group size="l">
+            <yo-button type="success" icon="add"></yo-button>
+            <yo-button type="success" icon="edit"></yo-button>
+            <yo-button type="success" icon="remove"></yo-button>
+            <yo-button type="success" icon="refresh"></yo-button>
+        </yo-button-group>
+        <yo-button-group size="l">
+            <yo-button type="error" icon="add"></yo-button>
+            <yo-button type="error" icon="edit"></yo-button>
+            <yo-button type="error" icon="remove"></yo-button>
+            <yo-button type="error" icon="refresh"></yo-button>
+        </yo-button-group>
+        <yo-button-group size="l">
+            <yo-button type="warning" icon="add"></yo-button>
+            <yo-button type="warning" icon="edit"></yo-button>
+            <yo-button type="warning" icon="remove"></yo-button>
+            <yo-button type="warning" icon="refresh"></yo-button>
+        </yo-button-group>
         &nbsp;
         <yo-button-group size="xs">
             <yo-button icon="add"></yo-button>

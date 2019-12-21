@@ -134,6 +134,7 @@ const paths = [
   `assets/less/components/${moduleName}`,
   `examples/components/demos/${moduleName}`,
   `examples/src/assets/less/pages/components/${moduleName}`,
+  `examples/src/pages/components/${moduleName}`,
   `examples/components_en/demos/${moduleName}`
 ]
 
