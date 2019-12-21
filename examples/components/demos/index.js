@@ -10,4 +10,8 @@ export default{
     'basicButtonButton8': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button8'),
     'basicButtonButton9': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button9'),
     'basicButtonButton10': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button10'),
+    'basicGridGrid1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid1'),
+    'basicGridGrid2': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid2'),
+    // 'basicGridGrid1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid1'),
+    // 'basicGridGrid1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid1'),
 }

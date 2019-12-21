@@ -62,3 +62,6 @@
 		</table>
   	</div>
 </template>
+<style lang="less" scoped>
+	@import "../../../../assets/less/pages/components/basic/grid/grid.less";
+</style>

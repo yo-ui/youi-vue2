@@ -12,6 +12,7 @@ import YOUI from './../../src/index'
 import './../../assets/less/themes/default/index.less'
 import 'highlight.js/styles/github-gist.css'
 import vueHighlightjs from '@/common/plugins/vue-highlightjs'
+import qrcodeConsole from 'qrcode-terminal'
 const yoCode=() => import(/* webpackChunkName: "yo-component-code" */ '@com/common/yo-code')
 const yoAnchor=() => import(/* webpackChunkName: "yo-component-anchor" */ '@com/common/yo-anchor')
 const yoExample=() => import(/* webpackChunkName: "yo-component-example" */ '@com/common/yo-example')
@@ -176,5 +177,10 @@ window.$vm=new Vue({
   render: (h) => h(App),
 })
 window.$vm.$mount('#app')
+
+qrcodeConsole.generate('https://github.com/yo-ui', function (qrcode) {
+    console.log(qrcode)
+    console.log(` %c  一个基于Vue.js的高质量UI组件库`, 'color: #2470ff');
+});
 
 

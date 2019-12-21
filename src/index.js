@@ -3,11 +3,17 @@
  *  created at:2019-12-12
  *  按钮组件
 */
+// button
 import YoButton from './components/basic/button'
 import YoButtonGroup from './components/basic/button-group'
+// grid
+import YoRow from './components/basic/row'
+import YoCol from './components/basic/col'
 const components = [
 	YoButton,
 	YoButtonGroup,
+	YoRow,
+	YoCol,
 ]
 
 const install = function(Vue, opts = {}) {
@@ -31,4 +37,6 @@ export default {
 	install,
 	YoButton,
 	YoButtonGroup,
+	YoRow,
+	YoCol,
 }

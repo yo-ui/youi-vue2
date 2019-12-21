@@ -97,7 +97,7 @@ const files = [
 	}, 
 	{
 		template: './build/template/index.ejs',
-		path: `src/components/${moduleName}/${params.lowerName}/index.js`
+		path: `src/components/${moduleName}/index.js`
 	},
 	{
 		template: './build/template/component.ejs',

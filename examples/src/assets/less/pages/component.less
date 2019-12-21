@@ -57,5 +57,39 @@
         .yo-example-com{
             .mb(15);
         }
+        table{
+            .mt(15);
+            .bor(1px solid @default-plain);
+            .w(100%);
+            border-spacing: 0;
+            border-collapse: 0;
+            th{
+                .bc(@default-bc);
+                .lh(40);
+                .fz(14);
+                .fw(bold);
+            }
+            td{
+                .lh(30);
+            }
+            td,th{
+                // .posr;
+                .borr(1px solid @default-plain);
+                .borb(1px solid @default-plain);
+                // .ml(-1);
+                // .mt(-1);
+                .tc;
+                &:last-child{
+                    .borr(none);
+                }
+            }
+            tr{
+                &:last-child{
+                    td{
+                        .borb(none);
+                    }
+                }
+            }
+        }
     }
 }

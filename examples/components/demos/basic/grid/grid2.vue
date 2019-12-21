@@ -16,6 +16,3 @@ export default {
 	}
 }
 </script>
-<style lang="less" scoped>
-	@import "../../../assets/less/pages/component/basic/grid/grid.less";
-</style>

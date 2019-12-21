@@ -1,10 +1,11 @@
 /**
  *  author: eric
- *  create at: 2019-12-21 12:30:36
+ *  create at: 2019-12-21 13:25:54
  */
 <template>
     
         <div class="yo-col">
+            <slot></slot>
         </div>
     
 </template>

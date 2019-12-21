@@ -4,7 +4,10 @@
  */
 <template>
 	<div>
-		<yo-grid></yo-grid>
+		<yo-row>
+			<yo-col>test</yo-col>
+			<yo-col>test2</yo-col>
+		</yo-row>
 	</div>
 </template>
 <script>
@@ -17,5 +20,5 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-	@import "../../../assets/less/pages/component/basic/grid/grid.less";
+	
 </style>
