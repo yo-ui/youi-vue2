@@ -13,7 +13,10 @@ export default {
 		return {
 
 		}
-	}
+	},
+	mounted() {
+		this.$emit('loaded')
+	},
 }
 </script>
 <style lang="less" scoped>

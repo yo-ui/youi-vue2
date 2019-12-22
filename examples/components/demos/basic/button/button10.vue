@@ -5,8 +5,18 @@
             <yo-button type="primary" icon="left">{{langKey('上一页')}}</yo-button>
             <yo-button type="primary" right-icon="right">{{langKey('下一页')}}</yo-button>
         </yo-button-group>
+        <yo-button-group round>
+            <yo-button type="primary" icon="left">{{langKey('上一页')}}</yo-button>
+            <yo-button type="primary" right-icon="right">{{langKey('下一页')}}</yo-button>
+        </yo-button-group>
         &nbsp;
         <yo-button-group size="l">
+            <yo-button type="primary" icon="add"></yo-button>
+            <yo-button type="primary" icon="edit"></yo-button>
+            <yo-button type="primary" icon="remove"></yo-button>
+            <yo-button type="primary" icon="refresh"></yo-button>
+        </yo-button-group>
+        <yo-button-group round size="l">
             <yo-button type="primary" icon="add"></yo-button>
             <yo-button type="primary" icon="edit"></yo-button>
             <yo-button type="primary" icon="remove"></yo-button>
@@ -36,6 +46,12 @@
             <yo-button type="warning" icon="remove"></yo-button>
             <yo-button type="warning" icon="refresh"></yo-button>
         </yo-button-group>
+        <yo-button-group reverse size="l">
+            <yo-button type="warning" icon="add"></yo-button>
+            <yo-button type="warning" icon="edit"></yo-button>
+            <yo-button type="warning" icon="remove"></yo-button>
+            <yo-button type="warning" icon="refresh"></yo-button>
+        </yo-button-group>
         &nbsp;
         <yo-button-group size="xs">
             <yo-button icon="add"></yo-button>
@@ -58,6 +74,21 @@
             <yo-button icon="remove"></yo-button>
             <yo-button icon="refresh"></yo-button>
         </yo-button-group>
+        &nbsp;
+        <yo-button-group round vertical>
+            <yo-button icon="add"></yo-button>
+            <yo-button icon="edit"></yo-button>
+            <yo-button icon="remove"></yo-button>
+            <yo-button icon="refresh"></yo-button>
+        </yo-button-group>
+
+        &nbsp;
+        <yo-button-group reverse round vertical>
+            <yo-button icon="add"></yo-button>
+            <yo-button icon="edit"></yo-button>
+            <yo-button icon="remove"></yo-button>
+            <yo-button icon="refresh"></yo-button>
+        </yo-button-group>
   </div>
 </template>
 <script>
@@ -74,4 +105,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
+    .yo-btn-group{
+        margin-bottom:20px;
+        margin-right: 20px;
+    }
 </style>

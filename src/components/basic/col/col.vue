@@ -23,11 +23,20 @@ export default {
     props:{
         span: [Number, String],
         flex: [Number, String],
+        //偏移
+        offset: [Number, String],
+        //栅格排序 
+        pull:[Number, String],
+        push:[Number, String],
+        //栅格排序  flex 排序
+        order:[Number, String],
+        
         xs: [Number, Object],
         sm: [Number, Object],
         md: [Number, Object],
         lg: [Number, Object],
-        xl: [Number, Object]
+        xl: [Number, Object],
+        xxl: [Number, Object]
     }, // 把父组件传递过来的 parentmsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据      
     inject:{
         yoRow:{
@@ -36,53 +45,65 @@ export default {
     },
     computed: {
         colClasses() {
-            let width = this.span;
-            let classList = [`${prefixCls}`];
+            let width = this.span
+            let offset = this.offset
+            let push = this.push
+            let pull = this.pull
+            let classList = [`${prefixCls}`]
             classList.push({
                 [`${prefixCls}-${width}`]: width,
+                [`${prefixCls}-offset-${offset}`]: offset,
+                [`${prefixCls}-pull-${pull}`]: pull,
+                [`${prefixCls}-push-${push}`]: push,
             });
 
-            // let noOtherWidth = width==undefined&&this.flex == undefined;
-            let lastSize = null;
-            for (let size of [ 'xl', 'lg', 'md', 'sm', 'xs' ]) {
+            // let lastSize = null;
+            for (let size of [ 'xxl','xl', 'lg', 'md', 'sm', 'xs' ]) {
                 if (this[size]) {
-                lastSize = this[size];
-                classList.push(`${prefixCls}-${size}-${this[size]}`);
-                } else if (lastSize) {
-                classList.push(`${prefixCls}-${size}-${lastSize}`);
+                // lastSize = this[size];
+                    classList.push(`${prefixCls}-${size}-${this[size]}`);
+                // } else if (lastSize) {
+                // classList.push(`${prefixCls}-${size}-${lastSize}`);
                 }
             }
-
-            return classList;
+            return classList
         },
         colStyles() {
-            let style = {};
-            let styleType = 'padding';
+            let style = {}
+            let styleType = 'padding'
             if (this.flex) {
-                style.flex = this.flex;
+                style.flex = this.flex
             }
             if (this.rowType == 'flex') {
-                styleType = 'margin';
+                styleType = 'margin'
             }
 
-            if (this.rowGutter && this.rowGutter !== 0) {
-                const leftTop = getHalf(this.rowGutter, true);
-                const rightBottom = getHalf(this.rowGutter, false);
+            if (this.rowGutter) {
+                let leftTop = this.rowGutter/2+'px'
+                let rightBottom = leftTop
                 style[`${styleType}Left`] = leftTop;
                 style[`${styleType}Right`] = rightBottom;
                 style[`${styleType}Top`] = leftTop;
                 style[`${styleType}Bottom`] = rightBottom;
             }
 
-            // if (utils.isNumber(this.rowGutterX) && this.rowGutterX !== 0) {
-            //     style[`${styleType}Left`] = getHalf(this.rowGutterX, true);
-            //     style[`${styleType}Right`] = getHalf(this.rowGutterX, false);
-            // }
+            if (this.rowGutterX) {
+                let leftTop = this.rowGutterX/2+'px'
+                style[`${styleType}Left`] = leftTop
+                style[`${styleType}Right`] = leftTop
+            }
 
-            // if (utils.isNumber(this.rowGutterY) && this.rowGutterY !== 0) {
-            //     style[`${styleType}Top`] = getHalf(this.rowGutterY, true);
-            //     style[`${styleType}Bottom`] = getHalf(this.rowGutterY, false);
-            // }
+            if (this.rowGutterY) {
+                let leftTop = this.rowGutterY/2+'px'
+                style[`${styleType}Top`] = leftTop
+                style[`${styleType}Bottom`] = leftTop
+            }
+
+            if (this.order) {
+                style[`-webkit-box-ordinal-group`] = parseInt(this.order||0)+1
+                style[`-ms-flex-order`] = this.order
+                style[`order`] = this.order
+            }
 
             return style;
         },
@@ -91,6 +112,12 @@ export default {
         },
         rowGutter(){
             return ((this.yoRow||{}).gutter||'')
+        },
+        rowGutterX(){
+            return ((this.yoRow||{}).gutterX||'')
+        },
+        rowGutterY(){
+            return ((this.yoRow||{}).gutterY||'')
         }
     },
     //存放 方法

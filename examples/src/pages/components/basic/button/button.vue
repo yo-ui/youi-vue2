@@ -47,6 +47,87 @@
 				<th>默认值</th>
 			</tr>
 			<tr>
+				<td>type</td>
+				<td>按钮类型</td>
+				<td>String</td>
+				<td>
+					<code>primary</code>、<code>dashed</code>、<code>text</code>、<code>info</code>、<code>success</code>、<code>warning</code>、<code>error</code>
+				</td>
+				<td>--</td>
+			</tr>
+			<tr>
+				<td>transparent</td>
+				<td>使按钮背景透明</td>
+				<td>Boolean</td>
+				<td>--</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>size</td>
+				<td>按钮大小</td>
+				<td>String</td>
+				<td><code>l</code>、<code>m</code>、<code> s</code>、<code> xs</code></td>
+				<td>--</td>
+			</tr>
+			<tr>
+				<td>circle</td>
+				<td>按钮是否圆形显示</td>
+				<td>Boolean</td>
+				<td>-</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>round</td>
+				<td>按钮是否圆角显示</td>
+				<td>Boolean</td>
+				<td>-</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>square</td>
+				<td>按钮是否方形显示</td>
+				<td>Boolean</td>
+				<td>-</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>plain</td>
+				<td>按钮是否朴素显示</td>
+				<td>Boolean</td>
+				<td>-</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>block</td>
+				<td>按钮是否占一行显示,开启后，按钮的长度为 100%</td>
+				<td>Boolean</td>
+				<td>-</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>disabled</td>
+				<td>设置按钮为禁用状态</td>
+				<td>Boolean</td>
+				<td>-</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>loading</td>
+				<td>是否加载中，将覆盖原有的图标</td>
+				<td>Boolean</td>
+				<td>-</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>loadingName</td>
+				<td>是否加载中，内置loading样式</td>
+				<td>String</td>
+				<td><code>loading</code>、<code> loading1</code>,
+				、<code> loading2</code>、<code> loading3</code>、<code> loading4</code>
+				</td>
+				<td>false</td>
+			</tr>
+			<tr>
 				<td>icon</td>
 				<td>左侧引用icon</td>
 				<td>String</td>
@@ -61,46 +142,53 @@
 				<td>-</td>
 			</tr>
 			<tr>
-				<td>loading</td>
-				<td>是否加载中，将覆盖原有的图标</td>
+				<td>stop</td>
+				<td>click事件是否stopPropagation</td>
+				<td>Boolean</td>
+				<td>--</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>prevent</td>
+				<td>click事件是否preventDefault</td>
+				<td>Boolean</td>
+				<td>--</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>to</td>
+				<td>按钮是否显示边框</td>
+				<td>String|Object</td>
+				<td>-</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>replace</td>
+				<td>路由跳转时，开启 replace 将不会向 history 添加新记录</td>
 				<td>Boolean</td>
 				<td>-</td>
 				<td>false</td>
 			</tr>
 			<tr>
-				<td>block</td>
-				<td>按钮是否占一行显示</td>
-				<td>Boolean</td>
-				<td>-</td>
+				<td>target</td>
+				<td>路由跳转时，相当于 a 链接的 target 属性</td>
+				<td>String</td>
+				<td><code>_blank</code>、<code> _parent</code>、<code>_self</code>、<code> _top</code>、<code>framename</code> (与a标签类似)</td>
 				<td>false</td>
 			</tr>
 			<tr>
-				<td>noBorder</td>
+				<td>no-border</td>
 				<td>按钮是否显示边框</td>
 				<td>Boolean</td>
 				<td>-</td>
 				<td>false</td>
 			</tr>
 			<tr>
-				<td>disabled</td>
-				<td>按钮是否可用</td>
-				<td>Boolean</td>
-				<td>-</td>
-				<td>false</td>
-			</tr>
-			<tr>
-				<td>size</td>
-				<td>按钮是否可用</td>
-				<td>String</td>
-				<td>l/m/ s/ xs</td>
-				<td>-</td>
-			</tr>
-			<tr>
 				<td>native-type</td>
-				<td>原生 type 属性</td>
+				<td>设置button原生的type</td>
 				<td>String</td>
-				<td>button / submit / reset</td>
-				<td>-</td>
+				<td><code>button </code>、<code> submit </code>、<code> reset</code></td>
+				<td>--</td>
 			</tr>
 		</table>
 
@@ -117,6 +205,40 @@
 				<td>click</td>
 				<td>点击事件</td>
 				<td>Event</td>
+			</tr>
+		</table>
+
+		<h3>ButtonGroup 参数</h3>
+		<table class="table">
+			<tr>
+				<th>参数</th>
+				<th>说明</th>
+				<th>类型</th>
+				<th>可选值</th>
+				<th>默认值</th>
+			</tr>
+			<tr>
+				<td>round</td>
+				<td>是否是圆角边框</td>
+				<td>String</td>
+				<td>
+					<code>primary</code>、<code>dashed</code>、<code>text</code>、<code>info</code>、<code>success</code>、<code>warning</code>、<code>error</code>
+				</td>
+				<td>--</td>
+			</tr>
+			<tr>
+				<td>size</td>
+				<td>按钮大小</td>
+				<td>String</td>
+				<td><code>l</code>、<code>m</code>、<code> s</code>、<code> xs</code></td>
+				<td>--</td>
+			</tr>
+			<tr>
+				<td>vertical</td>
+				<td>是否纵向排列按钮组</td>
+				<td>Boolean</td>
+				<td>--</td>
+				<td>false</td>
 			</tr>
 		</table>
     </div>

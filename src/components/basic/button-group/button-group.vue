@@ -12,10 +12,10 @@
 
 const prefix = 'yo-btn-group'
 const Props = {
-    size: ['l', 's', 'xs']
-};
+    size: ['l','m', 's', 'xs']
+}
 export default {
-    name: 'yo-button-group',
+    name: 'yoButtonGroup',
     //提供给子组件使用
     provide() {
         return {
@@ -33,7 +33,8 @@ export default {
     // 注意： 组件中的 所有 props 中的数据，都是通过 父组件传递给子组件的
     // props 中的数据，都是只读的，无法重新赋值
     props:{
-        circle: Boolean,
+        //圆角
+        round: Boolean,
         reverse:{
             type:Boolean,
             default:false
@@ -51,7 +52,7 @@ export default {
         btnGroupCls() {
             return {
                 [`${prefix}`]: true,
-                [`${prefix}-circle`]: !!this.circle,
+                [`${prefix}-round`]: !!this.round,
                 [`${prefix}-vertical`]: !!this.vertical,
                 [`${prefix}-${this.size}`]: !!this.size
             }
@@ -63,9 +64,10 @@ export default {
             const reverse = this.reverse
             let slots = this.$slots.default || [];
             if (reverse) {
+            console.log('------------ start',slots)
                 slots = slots.reverse()
+            console.log('------------ end',slots)
             }
-            // console.log('------------',slots)
 		}
 	},
     //存放 过滤器
@@ -82,13 +84,12 @@ export default {
 
 	},
     created() { 
-
+		this.init()
 	},
     beforeMount() { 
 
 	},
     mounted() { 
-		this.init()
 	},
     //运行期间
     beforeUpdate() {

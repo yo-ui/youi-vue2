@@ -1,6 +1,7 @@
 <script>
 const prefix='yo-btn'
 const Props = {
+    // 'xxl','xl', 'lg', 'md', 'sm', 'xs'
   size: ['l','m', 's', 'xs']
 }
 const template=`<slot name="left"></slot><i :class="'yo-icon-'+loadingName" v-if="loading"></i>
@@ -72,7 +73,7 @@ export default {
             type: Boolean,
             default: false
         },
-        preventDefault: {
+        prevent: {
             type: Boolean,
             default: false
         },
@@ -87,9 +88,7 @@ export default {
             default: false
         },
         //链接跳转  适用router-link参数（如果有使用Vue-Router）
-        to:Object,
-        //朴素简单按钮
-        to:Object,
+        to:[String,Object],
         // 窗口打开目标     _blank, _parent,_self, _top,framename 与a标签类似
         target:String,
         //是否是圆角
@@ -145,12 +144,15 @@ export default {
         btnSize(){
             return this.size||(this.yoButtonGroup||{}).size||this.$YOUI.size
         },
+        btnRound(){
+            return this.round||(this.yoButtonGroup||{}).round
+        },
         btnCls() {
             return {
                 [`${prefix}-default`]: !this.type,
                 [`${prefix}-${this.type}`]: !!this.type,
                 [`${prefix}-circle`]: !!this.circle,
-                [`${prefix}-round`]: !!this.round,
+                [`${prefix}-round`]: !!this.btnRound,
                 [`${prefix}-square`]: !!this.square,
                 [`${prefix}-disabled`]: !!this.disabled,
                 [`${prefix}-icon-circle`]: !!this.iconCircle,
@@ -182,6 +184,12 @@ export default {
                 return false
             }
             console.log('handleClick end')
+            if (this.stop) {
+                event.stopPropagation()
+            }
+            if (this.prevent) {
+                event.preventDefault()
+            }
             this.$emit('click',evt)
 		}
 	},

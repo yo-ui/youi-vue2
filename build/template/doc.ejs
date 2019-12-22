@@ -11,7 +11,7 @@
 		<h3>其他</h3>
 		<yo-example root="/components/demos/" demo="<%=moduleName%>/<%=lowerName%>2" ext=".vue"></yo-example>
 
-		<h3><%=upperName%> 参数</h3>
+		<yo-anchor :text="'<%=upperName%> '+langKey('参数')"></yo-anchor>
 		<table class="table">
 			<tr>
 				<th>参数</th>
@@ -29,8 +29,7 @@
 			</tr>
 		</table>
 
-
-		<h3><%=upperName%> 方法</h3>
+		<yo-anchor :text="'<%=upperName%> '+langKey('方法')"></yo-anchor>
 		<table class="table">
 			<tr>
 				<th>方法</th>
@@ -46,7 +45,7 @@
 			</tr>
 		</table>
 
-		<h3><%=upperName%> 事件</h3>
+		<yo-anchor :text="'<%=upperName%> '+langKey('事件')"></yo-anchor>
 		<table class="table">
 			<tr>
 				<th>参数</th>
