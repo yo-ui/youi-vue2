@@ -12,6 +12,6 @@ export default{
     'basicButtonButton10': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button10'),
     'basicGridGrid1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid1'),
     'basicGridGrid2': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid2'),
-    // 'basicGridGrid1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid1'),
-    // 'basicGridGrid1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid1'),
+    'basicLinkLink1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/link/link1'),
+    'basicLinkLink1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/link/link1'),
 }

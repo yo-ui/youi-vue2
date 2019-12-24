@@ -1,19 +1,16 @@
 /**
- *  author: <%=author%>
- *  create at: <%=date%>
+ *  author: eric
+ *  create at: 2019-12-24 22:12:39
  */
 <template>
-    <% if(lowerName=='button'){%>
-    <yo-<%=lowerName%> class="yo-<%=lowerName%>">
-    </yo-<%=lowerName%>>
-    <% }else{%>
-    <div class="yo-<%=lowerName%>">
+    <div :class="yoClasses">
+        <slot></slot>
     </div>
-    <% }%>
 </template>
 <script>
+const prefix='yo-container'
 export default {
-	name: 'yo<%=upperName%>',
+	name: 'yoContainer',
 	//存放 数据
     data: function () {
         return {
@@ -24,10 +21,34 @@ export default {
     // 注意： 组件中的 所有 props 中的数据，都是通过 父组件传递给子组件的
     // props 中的数据，都是只读的，无法重新赋值
     props:{
-
+        vertical:{
+            type:Boolean,
+            default:false,
+        },
+        horizontal:{
+            type:Boolean,
+            default:false,
+        },
 	}, // 把父组件传递过来的 parentmsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据
     computed: {
-
+        isVertical(){
+            let that=this
+            if(that.vertical){
+                return true
+            }else if(that.horizontal){
+                return false
+            }
+            let slot=that.$slots.default
+            return slot.some(item=>{
+                return item.tag=='yo-header'||item.tag=='yo-footer'
+            })
+        },
+        yoClasses(){
+            return {
+                [`${prefix}`]: true,
+                [`${prefix}-vertical`]: !!this.isVertical,
+            }
+        }
     },
     //存放 方法
     methods: {

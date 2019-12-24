@@ -7,9 +7,21 @@
 .yo-component-page{
     .flex-content{
         .bort(1px solid @default-plain);
+        .db(inline-flex);
+        &.fixed{
+            .yo-left{
+                .posf;
+                top:60px;
+                left:0;
+                bottom:0;
+            }
+            // .yo-right{
+            //     // padding-left:~"expression()";
+            // }
+        }
     }
     .yo-left{
-        min-width: 200px;
+        // min-width: 200px;
         // .tc;
         .borr(1px solid @default-plain);
         img{

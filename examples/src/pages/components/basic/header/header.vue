@@ -1,17 +1,17 @@
 <template>
-  	<div class="yo-component-<%=lowerName%>-page">
-		<yo-anchor :text="'<%=upperName%>'+langKey('按钮')" size="18"></yo-anchor>
+  	<div class="yo-component-header-page">
+		<yo-anchor :text="'Header'+langKey('按钮')" size="18"></yo-anchor>
 
 		
 		<p>说明</p>
 
 		<h3>基本调用</h3>
-		<yo-example root="/components/demos/" demo="<%=moduleName%>/<%=lowerName%>1" ext=".vue"></yo-example>
+		<yo-example root="/components/demos/" demo="basic/header/header1" ext=".vue"></yo-example>
 
 		<h3>其他</h3>
-		<yo-example root="/components/demos/" demo="<%=moduleName%>/<%=lowerName%>2" ext=".vue"></yo-example>
+		<yo-example root="/components/demos/" demo="basic/header/header2" ext=".vue"></yo-example>
 
-		<yo-anchor :text="'<%=upperName%> '+langKey('参数')"></yo-anchor>
+		<yo-anchor :text="'Header '+langKey('参数')"></yo-anchor>
 		<table class="table">
 			<tr>
 				<th>参数</th>
@@ -29,7 +29,7 @@
 			</tr>
 		</table>
 
-		<yo-anchor :text="'<%=upperName%> '+langKey('方法')"></yo-anchor>
+		<yo-anchor :text="'Header '+langKey('方法')"></yo-anchor>
 		<table class="table">
 			<tr>
 				<th>方法</th>
@@ -45,7 +45,7 @@
 			</tr>
 		</table>
 
-		<yo-anchor :text="'<%=upperName%> '+langKey('事件')"></yo-anchor>
+		<yo-anchor :text="'Header '+langKey('事件')"></yo-anchor>
 		<table class="table">
 			<tr>
 				<th>参数</th>
@@ -62,5 +62,5 @@
 </template>
 
 <style lang="less" scoped>
-	@import "../../../../assets/less/pages/components/<%=moduleName%>/<%=lowerName%>.less";
+	@import "../../../../assets/less/pages/components/basic/header/header.less";
 </style>

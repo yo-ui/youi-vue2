@@ -9,11 +9,15 @@ import YoButtonGroup from './components/basic/button-group'
 // grid
 import YoRow from './components/basic/row'
 import YoCol from './components/basic/col'
+// link
+import YoLink from './components/basic/link'
+
 const components = [
 	YoButton,
 	YoButtonGroup,
 	YoRow,
 	YoCol,
+	YoLink,
 ]
 
 const install = function(Vue, opts = {}) {
@@ -39,4 +43,5 @@ export default {
 	YoButtonGroup,
 	YoRow,
 	YoCol,
+	YoLink,
 }

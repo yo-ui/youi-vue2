@@ -28,23 +28,23 @@ export default {
     `):
     **/
     template:`
-        <a :href="typeof(to)=='string'?to:to.name" class="yo-btn" :class="btnCls" :style="btnStyle"
-        :target="target" @click="handleClick"
-        :disabled="disabled || loading" v-if="isHttpLink">
-            ${template}
-        </a>
-        <router-link :replace="replace" :to="to" class="yo-btn" :style="btnStyle"
-        :target="target" v-else-if="to&&$route" 
-        :class="btnCls" :disabled="disabled || loading">
+        <router-link :replace="replace" :to="to" class="yo-btn" :style="yoStyles"
+        :target="target" v-if="typeof(to)==='object'&&$route" 
+        :class="yoClasses" :disabled="disabled || loading">
             ${template}
         </router-link>
+        <a :href="typeof(to)=='string'?to:to.name" class="yo-btn" :class="yoClasses" :style="yoStyles"
+        :target="target" @click="handleClick"
+        :disabled="disabled || loading" v-else-if="isHttpLink">
+            ${template}
+        </a>
         <button class="yo-btn"
-        @click="handleClick" :style="btnStyle"
+        @click="handleClick" :style="yoStyles"
         :disabled="disabled || loading"
         :type="nativeType"
-        :class="btnCls" v-else
+        :class="yoClasses" v-else
         >
-        ${template}
+            ${template}
         </button>
     `,
     //存放 子组件
@@ -132,14 +132,14 @@ export default {
             }
             return false
         },
-        btnStyle(){
-            let btnStyle= {
+        yoStyles(){
+            let yoStyles= {
                 'background-color':`${this.color}`,
                 'border-color':`${this.color}`,
                 'color':`${this.textColor}`,
             }
-            // console.log(btnStyle)
-            return btnStyle
+            // console.log(yoStyles)
+            return yoStyles
         },
         btnSize(){
             return this.size||(this.yoButtonGroup||{}).size||this.$YOUI.size
@@ -147,7 +147,7 @@ export default {
         btnRound(){
             return this.round||(this.yoButtonGroup||{}).round
         },
-        btnCls() {
+        yoClasses() {
             return {
                 [`${prefix}-default`]: !this.type,
                 [`${prefix}-${this.type}`]: !!this.type,
@@ -178,9 +178,11 @@ export default {
     //存放 方法
     methods: {
 		handleClick(evt){
-            if(this.isHttpLink&&this.replace){
+            if(this.isHttpLink){
                 console.log('handleClick start',this.to)
-                location.replace(this.to)
+                if(this.replace){
+                    location.replace(this.to)
+                }
                 return false
             }
             console.log('handleClick end')

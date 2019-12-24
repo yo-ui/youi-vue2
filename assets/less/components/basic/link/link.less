@@ -1,0 +1,77 @@
+/**
+ *  author: eric
+ *  create at: 2019-12-23 10:47:50
+ */
+@link-prefix: ~"@{prefix}a";
+
+.@{link-prefix}{
+    .db(inline-flex);
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    .posr;
+    text-decoration: none;
+    .borb(1px solid transparent);
+    [class^='yo-icon-']:last-child{
+        .pl(4);
+    }
+    [class^='yo-icon-']:first-child{
+        // .p(0 4px);
+        .pr(4);
+    }
+    &:hover{
+        text-decoration: none;
+        // .borb(1px solid @font);
+    }
+    &.@{link-prefix}-underline{
+        &:hover{
+            // text-decoration: underline;
+            .borb(1px solid @font);
+        }
+    }
+    &.@{link-prefix}-default{
+        .c(@font);
+        &:hover{
+            opacity:.8;
+        }
+    }
+    &.@{link-prefix}-primary{
+        .c(@primary);
+        &:hover{
+            opacity:.8;
+        }
+    }
+    &.@{link-prefix}-info{
+        .c(@info);
+        &:hover{
+            opacity:.8;
+        }
+    }
+    &.@{link-prefix}-success{
+        .c(@success);
+        &:hover{
+            opacity:.8;
+        }
+    }
+    &.@{link-prefix}-warning{
+        .c(@warning);
+        &:hover{
+            opacity:.8;
+        }
+    }
+    &.@{link-prefix}-error{
+        .c(@error);
+        &:hover{
+            opacity:.8;
+        }
+    }
+    &.@{link-prefix}-disabled{
+        opacity:.5;
+        &:hover{
+            opacity:.5;
+            cursor:not-allowed;
+            text-decoration: none;
+            .borbc(transparent);
+        }
+    }
+}

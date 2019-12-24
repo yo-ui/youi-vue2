@@ -164,7 +164,7 @@ for (let f of files) {
                 console.error(f.path,'create fail')
             }
         }else{
-            console.error(f.path,'template render fail')
+            console.error(f.path,err,'template render fail')
         }
     })
 }

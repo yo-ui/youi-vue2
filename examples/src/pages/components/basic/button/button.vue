@@ -208,6 +208,26 @@
 			</tr>
 		</table>
 
+		<h3>Button Slots</h3>
+		<table class="table">
+			<tr>
+				<th>名称</th>
+				<th>说明</th>
+			</tr>
+			<tr>
+				<td>--</td>
+				<td>默认内容</td>
+			</tr>
+			<tr>
+				<td>left</td>
+				<td>左侧内容</td>
+			</tr>
+			<tr>
+				<td>right</td>
+				<td>右侧内容</td>
+			</tr>
+		</table>
+
 		<h3>ButtonGroup 参数</h3>
 		<table class="table">
 			<tr>
@@ -239,6 +259,18 @@
 				<td>Boolean</td>
 				<td>--</td>
 				<td>false</td>
+			</tr>
+		</table>
+
+		<h3>ButtonGroup Slots</h3>
+		<table class="table">
+			<tr>
+				<th>名称</th>
+				<th>说明</th>
+			</tr>
+			<tr>
+				<td>--</td>
+				<td>默认内容</td>
 			</tr>
 		</table>
     </div>

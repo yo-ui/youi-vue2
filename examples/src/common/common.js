@@ -84,6 +84,24 @@ let common = {
         if (console) {
             that.debugMode && console.group.apply(console,arguments)
         }
+    },     
+    addClass(obj,name){
+        // that.replaceBodyClass('\\s\\s*(dark|light)',userInfo?userInfo.pageUserTheme:'')
+        let reg=new RegExp('\\s\\s*'+name,'gi')
+        let className=obj.className||''
+        if(className.split(/\s\s*/).indexOf(name)>-1){
+            return
+        }
+        this.log('----className',className)
+        className = className.replace(reg,'') + ' '+name
+        obj.className=className
+    },
+    removeClass(obj,name){
+        // that.replaceBodyClass('\\s\\s*(dark|light)',userInfo?userInfo.pageUserTheme:'')
+        let reg=new RegExp('\\s\\s*'+name,'gi')
+        let className=obj.className||''
+        className = className.replace(reg,'')
+        obj.className=className
     },
     load_js(src,callback){
         let set_src = src.split(",")
