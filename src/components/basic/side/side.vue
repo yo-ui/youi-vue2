@@ -1,16 +1,15 @@
 /**
  *  author: eric
- *  create at: 2019-12-25 03:07:41
+ *  create at: 2019-12-25 20:34:59
  */
 <template>
-    
-    <div class="yo-layout">
+    <div class="yo-side">
+        <slot></slot>
     </div>
-    
 </template>
 <script>
 export default {
-	name: 'yoLayout',
+	name: 'yoSide',
 	//存放 数据
     data: function () {
         return {

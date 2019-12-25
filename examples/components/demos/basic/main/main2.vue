@@ -1,14 +1,10 @@
 /**
  *  author: eric
- *  create at: 2019-12-25 03:07:41
+ *  create at: 2019-12-25 20:50:01
  */
 <template>
-	<div class="demo">
-		<yo-container>
-			<yo-header></yo-header>
-			<yo-main></yo-main>
-			<yo-footer></yo-footer>
-		</yo-container>
+	<div>
+		<yo-main></yo-main>
 	</div>
 </template>
 <script>

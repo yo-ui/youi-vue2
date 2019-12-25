@@ -40,7 +40,8 @@ export default {
             }
             let slot=that.$slots.default
             return slot.some(item=>{
-                return item.tag=='yo-header'||item.tag=='yo-footer'
+                let options=item.componentOptions
+                return options.tag=='yo-header'||options.tag=='yo-footer'
             })
         },
         yoClasses(){

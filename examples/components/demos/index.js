@@ -1,5 +1,9 @@
 export default{
     // 'basicExtend1': () => require.ensure([], require => require('./basic/extend1.vue'), 'basic'),
+    'basicLayoutLayout1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/layout/layout1'),
+    'basicLayoutLayout2': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/layout/layout2'),
+    'basicGridGrid1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid1'),
+    'basicGridGrid2': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid2'),
     'basicButtonButton1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button1'),
     'basicButtonButton2': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button2'),
     'basicButtonButton3': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button3'),
@@ -10,8 +14,6 @@ export default{
     'basicButtonButton8': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button8'),
     'basicButtonButton9': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button9'),
     'basicButtonButton10': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button10'),
-    'basicGridGrid1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid1'),
-    'basicGridGrid2': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/grid/grid2'),
     'basicLinkLink1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/link/link1'),
     'basicLinkLink1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/link/link1'),
 }
