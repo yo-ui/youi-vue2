@@ -20,8 +20,8 @@ import YoButtonGroup from './components/basic/button-group'
 import YoLink from './components/basic/link'
 
 // breadcrumb
-import YoBreadcrumbItem from './components/basic/breadcrumb'
-import YoBreadcrumb from './components/basic/breadcrumb-item'
+import YoBreadcrumbItem from './components/navigation/breadcrumb'
+import YoBreadcrumb from './components/navigation/breadcrumb-item'
 
 const components = [
 	YoContainer,

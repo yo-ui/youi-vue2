@@ -25,8 +25,10 @@
                 <h3 class="sub" v-text="langKey('表单组件')"></h3>
                 <ul class="list">
                     <router-link :to="{name:'componentGuide'}"><li :class="{'active':code=='componentGuide6'}">{{langKey('首页')}}</li></router-link>
-                    <router-link :to="{name:'componentGuide'}"><li :class="{'active':code=='componentGuide7'}">{{langKey('首页')}}</li></router-link>
-                    <router-link :to="{name:'componentGuide'}"><li :class="{'active':code=='componentGuide8'}">{{langKey('首页')}}</li></router-link>
+                </ul>
+                <h3 class="sub" v-text="langKey('导航组件')"></h3>
+                <ul class="list">
+                    <router-link :to="{name:'componentBreadcrumb'}"><li :class="{'active':code=='componentBreadcrumb'}">{{langKey('面包屑')}}</li></router-link>
                 </ul>
             </div>
             <div class="yo-right">

@@ -4,11 +4,15 @@
  */
 <template>
     <div class="yo-breadcrumb">
-        <template v-if="items&&item.length>0">
+        <template v-if="items&&items.length>0">
             <template v-for="(item,index) in items">
-                <yo-breadcrumb-item :key="index"></yo-breadcrumb-item>
-                <span class="yo-breadcrumb-separator" :key="index" v-if="index<items.length-1"></span>
+                <yo-breadcrumb-item :key="index" :icon="item.icon" :right-icon="item.rightIcon" :to="item.to">
+                    {{item.title}}
+                </yo-breadcrumb-item>
             </template>
+        </template>
+        <template v-else>
+            <slot></slot>
         </template>
     </div>
 </template>
@@ -18,6 +22,12 @@ export default {
 	//存放 数据
     data: function () {
         return {
+            // size:0,
+        }
+    },
+    provide(){
+        return {
+            yoBreadcrumb:this,
         }
     },
     //存放 子组件
@@ -26,6 +36,11 @@ export default {
     // props 中的数据，都是只读的，无法重新赋值
     props:{
         items:Array,
+        separator:{
+            type:String,
+            default:'/'
+        },
+        separatorIcon:String,
 	}, // 把父组件传递过来的 parentmsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据
     computed: {
 
@@ -33,7 +48,14 @@ export default {
     //存放 方法
     methods: {
 		init(){
-
+            // let that=this
+            // let items=that.items
+            // if(items&&items.length>0){
+            //     that.size=items.length
+            // }else{
+            //     let slot=that.$slots.default||[]
+            //     that.size=slot.length
+            // }
 		}
 	},
     //存放 过滤器

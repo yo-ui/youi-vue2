@@ -64,9 +64,9 @@ export default {
             const reverse = this.reverse
             let slots = this.$slots.default || [];
             if (reverse) {
-            console.log('------------ start',slots)
+            // console.log('------------ start',slots)
                 slots = slots.reverse()
-            console.log('------------ end',slots)
+            // console.log('------------ end',slots)
             }
 		}
 	},

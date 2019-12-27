@@ -85,6 +85,15 @@ const Routers = [
             },
             component: () => import(/* webpackChunkName: "yo-component-Icon" */ '@/pages/components/basic/icons/icons'),
         },
+        //组件-面包屑组件
+        {
+            path: RouterURL['componentBreadcrumb'].path,
+            name: RouterURL['componentBreadcrumb'].name,
+            meta: {
+                title: RouterURL['componentBreadcrumb'].title,
+            },
+            component: () => import(/* webpackChunkName: "yo-component-Breadcrumb" */ '@/pages/components/navigation/breadcrumb/breadcrumb'),
+        },
     ]
 },
 
