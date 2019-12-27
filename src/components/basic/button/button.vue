@@ -28,17 +28,17 @@ export default {
     `):
     **/
     template:`
-        <router-link :replace="replace" :to="to" class="yo-btn" :style="yoStyles"
+        <router-link :replace="replace" :to="to" class="${prefix}" :style="yoStyles"
         :target="target" v-if="typeof(to)==='object'&&$route" 
         :class="yoClasses" :disabled="disabled || loading">
             ${template}
         </router-link>
-        <a :href="typeof(to)=='string'?to:to.name" class="yo-btn" :class="yoClasses" :style="yoStyles"
+        <a :href="typeof(to)=='string'?to:to.name" class="${prefix}" :class="yoClasses" :style="yoStyles"
         :target="target" @click="handleClick"
         :disabled="disabled || loading" v-else-if="isHttpLink">
             ${template}
         </a>
-        <button class="yo-btn"
+        <button class="${prefix}"
         @click="handleClick" :style="yoStyles"
         :disabled="disabled || loading"
         :type="nativeType"

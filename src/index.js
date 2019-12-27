@@ -19,6 +19,10 @@ import YoButtonGroup from './components/basic/button-group'
 // link
 import YoLink from './components/basic/link'
 
+// breadcrumb
+import YoBreadcrumbItem from './components/basic/breadcrumb'
+import YoBreadcrumb from './components/basic/breadcrumb-item'
+
 const components = [
 	YoContainer,
 	YoSide,
@@ -31,6 +35,9 @@ const components = [
 
 	YoButton,
 	YoButtonGroup,
+
+	YoBreadcrumb,
+	YoBreadcrumbItem,
 
 	YoLink,
 ]
@@ -68,4 +75,7 @@ export default {
 	YoCol,
 	
 	YoLink,
+
+	YoBreadcrumb,
+	YoBreadcrumbItem,
 }
