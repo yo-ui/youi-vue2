@@ -13,6 +13,8 @@ export default {
     'componentGrid': {name:'componentGrid',path:'basic/grid',title:'按钮组件'},
     'componentLayout': {name:'componentLayout',path:'basic/layout',title:'布局组件'},
 
+    'componentInput': {name:'componentInput',path:'form/input',title:'输入框组件'},
+    
     'componentBreadcrumb': {name:'componentBreadcrumb',path:'navigation/breadcrumb',title:'面包屑组件'},
 
     'login': {name:'login',path:'/signin',title:'登录'},

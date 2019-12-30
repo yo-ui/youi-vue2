@@ -16,6 +16,10 @@ export default{
     'basicButtonButton10': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/button/button10'),
     'basicLinkLink1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/link/link1'),
     'basicLinkLink2': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/link/link2'),
+    
+    
+    'formInputInput1': () => import(/* webpackChunkName: "yo-component-form" */ './form/input/input1'),
+    
     'navigationBreadcrumbBreadcrumb1': () => import(/* webpackChunkName: "yo-component-navigation" */ './navigation/breadcrumb/breadcrumb1'),
     'navigationBreadcrumbBreadcrumb2': () => import(/* webpackChunkName: "yo-component-navigation" */ './navigation/breadcrumb/breadcrumb2'),
 }
