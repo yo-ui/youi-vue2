@@ -17,8 +17,11 @@ export default{
     'basicLinkLink1': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/link/link1'),
     'basicLinkLink2': () => import(/* webpackChunkName: "yo-component-basic" */ './basic/link/link2'),
     
+    'formFormForm1': () => import(/* webpackChunkName: "yo-component-form" */ './form/form/form1'),
+    'formFormForm2': () => import(/* webpackChunkName: "yo-component-form" */ './form/form/form2'),
     
     'formInputInput1': () => import(/* webpackChunkName: "yo-component-form" */ './form/input/input1'),
+    'formInputInput2': () => import(/* webpackChunkName: "yo-component-form" */ './form/input/input2'),
     
     'navigationBreadcrumbBreadcrumb1': () => import(/* webpackChunkName: "yo-component-navigation" */ './navigation/breadcrumb/breadcrumb1'),
     'navigationBreadcrumbBreadcrumb2': () => import(/* webpackChunkName: "yo-component-navigation" */ './navigation/breadcrumb/breadcrumb2'),

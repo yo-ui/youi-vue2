@@ -19,6 +19,11 @@ import YoButtonGroup from './components/basic/button-group'
 // link
 import YoLink from './components/basic/link'
 
+// input
+import YoInput from './components/form/input'
+import YoForm from './components/form/form'
+import YoFormItem from './components/form/form-item'
+
 // breadcrumb
 import YoBreadcrumbItem from './components/navigation/breadcrumb'
 import YoBreadcrumb from './components/navigation/breadcrumb-item'
@@ -35,11 +40,14 @@ const components = [
 
 	YoButton,
 	YoButtonGroup,
+	YoLink,
 
 	YoBreadcrumb,
 	YoBreadcrumbItem,
 
-	YoLink,
+	YoForm,
+	YoFormItem,
+	YoInput,
 ]
 
 const install = function(Vue, opts = {}) {
@@ -78,4 +86,8 @@ export default {
 
 	YoBreadcrumb,
 	YoBreadcrumbItem,
+	
+	YoForm,
+	YoFormItem,
+	YoInput,
 }

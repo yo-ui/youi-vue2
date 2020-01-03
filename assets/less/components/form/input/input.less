@@ -3,7 +3,64 @@
  *  create at: 2019-12-30 23:48:26
  */
 @input-prefix: ~"@{prefix}input";
+@texarea-prefix: ~"@{prefix}texarea";
 
 .@{input-prefix}{
+    .db(inline-block);
+    vertical-align: middle;
+    .posr;
+    .@{input-prefix}-inner{
+        .h(20);
+        .lh(20);
+        .p(3px 10px);
+        .bor(1px solid @grayE);
+        outline: none;
+        &:focus{
+            .borc(@default);
+        }
+    }
+    .yo-icon-close{
+        .bc(@gray9);
+        .br(50%);
+        .c(@white);
+        .fz(10);
+        .posa;
+        .squ(14);
+        .lh(14);
+        .tc;
+        right:5px;
+        top:50%;
+        .tranf(translate(0,-50%));
+        .db(none);
+        cursor: pointer;
+    }
+    &:hover{
+        .yo-icon-close{
+            .db;
+        }
+    }
+    &.@{input-prefix}-l{
+        .@{input-prefix}-inner{
+            .p(8px 10px);
+        }
+    }
+    &.@{input-prefix}-m{
+        .@{input-prefix}-inner{
+            .p(6px 10px);
+        }
+    }
+    &.@{input-prefix}-s{
+        .@{input-prefix}-inner{
+            .p(2px 10px);
+        }
+
+    }
+    &.@{input-prefix}-xs{
+        .@{input-prefix}-inner{
+            .p(0 10px);
+        }
+    }
+}
+.@{texarea-prefix}{
 
 }
