@@ -28,7 +28,7 @@ const template=`<slot name="left"></slot>
         ref="input"
         v-bind="$attrs"/>
         <i :class="'yo-icon-'+rightIcon" v-if="rightIcon"></i>
-        <i class="yo-icon-close" v-if="clearable"></i>
+        <i class="yo-icon-close" v-if="clearable&&this.value" @click="clear"></i>
         <slot name="right"></slot>`
 export default {
 	name: 'yoInput',
@@ -76,6 +76,16 @@ export default {
             type:String,
             default:'text',//组件类型  text textarea  默认为text
         },
+        //字数统计是否显示在外面
+        outer:{
+            type:Boolean,
+            default:false,
+        },
+        //字数统计是否显示在里面
+        inner:{
+            type:Boolean,
+            default:true,
+        },
         //是否显示清除图标按钮
         clearable:{
             type:Boolean,
@@ -104,9 +114,10 @@ export default {
 	}, // 把父组件传递过来的 parentmsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据
     computed: {
         inputDisabled(){
-            return this.disabled
+            return this.disabled||(this.yoForm||{}).disabled
         },
         nativeInputValue() {
+            // console.error(this.value)
             return this.value === null || this.value === undefined ? '' : String(this.value);
         },
         yoStyles(){
@@ -159,6 +170,12 @@ export default {
         blur(){},
         //使input 获取焦点
         focus(){},
+        // 清空输入值
+        clear() {
+            this.$emit('input', '');
+            this.$emit('change', '');
+            this.$emit('clear');
+        },
         //选中input中的文字
         select(){},
         onBlur(){},
@@ -185,23 +202,36 @@ export default {
         },
         onInput(event) {
             // should not emit input during composition
-            if (this.isComposing) return;
+            if (this.isComposing){
+                return
+            } 
 
             // should remove the following line when we don't support IE
-            if (event.target.value === this.nativeInputValue) return;
+            if (event.target.value === this.nativeInputValue){
+                return
+            } 
 
-            this.$emit('input', event.target.value);
+            this.$emit('input', event.target.value)
             // ensure native input value is controlled
-            this.$nextTick(this.setNativeInputValue);
+            this.$nextTick(this.setNativeInputValue)
         },
         getInput(){
             return this.$refs.input || this.$refs.textarea;
         },
         setNativeInputValue() {
             const input = this.getInput();
-            if (!input) return;
-            if (input.value === this.nativeInputValue) return;
-            input.value = this.nativeInputValue;
+            if (!input){
+                return
+            } 
+            if (input.value === this.nativeInputValue){
+                return
+            }
+            let value=this.nativeInputValue
+            // console.error(value,this.value,'----')
+            //增加未写v-model 的控件处理
+            if(this.value!==undefined){
+                input.value = this.nativeInputValue
+            }
         },
 	},
     //存放 过滤器

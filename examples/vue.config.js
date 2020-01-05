@@ -216,6 +216,7 @@ module.exports = {
         host: '0.0.0.0',
         port: 8089,
         https: false,
+        disableHostCheck: true, //  新增该配置项
         hotOnly: false,
         // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#配置代理
         proxy: null, // string | Object
