@@ -4,12 +4,19 @@
  */
 <script>
 const prefix='yo-input'
+const t_prefix='yo-textarea'
 const Props = {
     // 'xxl','xl', 'lg', 'md', 'sm', 'xs'
   size: ['l','m', 's', 'xs']
 }
-const template=`<slot name="left"></slot>
+const template=`
+        <span class="${prefix}-pre" v-if="$slots.prepend">
+            <slot name="prepend"></slot>
+        </span>
+        <span ref="pre_box" class="yo-icon-pre-box">
+        <slot name="left"></slot>
         <i :class="'yo-icon-'+icon" v-if="icon"></i>
+        </span>
         <input 
         class="${prefix}-inner"
         @blur="onBlur" 
@@ -26,10 +33,19 @@ const template=`<slot name="left"></slot>
         :disabled="inputDisabled"
         :readonly="readonly"
         ref="input"
+        :type="nativeInputType"
         v-bind="$attrs"/>
+        <span ref="post_box" class="yo-icon-post-box">
         <i :class="'yo-icon-'+rightIcon" v-if="rightIcon"></i>
         <i class="yo-icon-close" v-if="clearable&&this.value" @click="clear"></i>
-        <slot name="right"></slot>`
+        <slot name="right"></slot>
+        <i :class="showPassClasses" @click="showPass=!showPass" v-if="showPassword"></i>
+        <span class="${prefix}-word-count" v-if="showWordLimit">{{ textLen }}/{{ upperLimit }}</span>
+        </span>
+        <span class="${prefix}-append" v-if="$slots.append">
+            <slot name="append"></slot>
+        </span>
+        `
 export default {
 	name: 'yoInput',
     template:`
@@ -37,32 +53,33 @@ export default {
             <template v-if="type!='textarea'">
                 ${template}
             </template>
-            <textarea v-else class="yo-textarea-inner" 
-            @blur="onBlur" 
-            @focus="onFocus"
-            @keyup="onKeyup"
-            :disabled="inputDisabled"
-            :readonly="readonly"
-            @keydown="onKeydown"
-            @keypress="onKeypress"
-            @change="onChange" 
-            @input="onInput" 
-            @clear="onClear"
-            @compositionstart="onCompositionStart"
-            @compositionupdate="onCompositionUpdate"
-            @compositionend="onCompositionEnd"
-            v-if-else="type=='textarea'"
-            ref="textarea"
-            v-bind="$attrs"
-            ></textarea>
-            <span class="${prefix}-word-count" v-if="showWordLimit">{{ textLen }}/{{ upperLimit }}</span>
+            <template v-else>
+                <textarea class="yo-textarea-inner" 
+                @blur="onBlur" 
+                @focus="onFocus"
+                @keyup="onKeyup"
+                :disabled="inputDisabled"
+                :readonly="readonly"
+                @keydown="onKeydown"
+                @keypress="onKeypress"
+                @change="onChange" 
+                @input="onInput" 
+                @clear="onClear"
+                @compositionstart="onCompositionStart"
+                @compositionupdate="onCompositionUpdate"
+                @compositionend="onCompositionEnd"
+                v-if-else="type=='textarea'"
+                ref="textarea"
+                v-bind="$attrs"
+                ></textarea>
+                <span class="${prefix}-word-count" v-if="showWordLimit">{{ textLen }}/{{ upperLimit }}</span>
+            </template>
         </div>
     `,
-        // <div v-if="type=='textarea'" class="yo-textarea">        
-        // </div>
 	//存放 数据
     data: function () {
         return {
+            showPass:false,//是否显示密码
         }
     },
     inject:['yoForm','yoFormItem'],
@@ -86,6 +103,11 @@ export default {
             type:Boolean,
             default:true,
         },
+        //是否显示密码切换按钮
+        showPassword:{
+            type:Boolean,
+            default:false,
+        },
         //是否显示清除图标按钮
         clearable:{
             type:Boolean,
@@ -105,6 +127,11 @@ export default {
             type: Boolean,
             default: false
         },
+        // 自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }
+        autosize:{
+            type:[Boolean,Object],
+            default:false,
+        },
         size: {
             type: String,
             validator(value) {
@@ -115,6 +142,22 @@ export default {
     computed: {
         inputDisabled(){
             return this.disabled||(this.yoForm||{}).disabled
+        },
+        nativeInputType(){
+            let type=this.type
+            if(!this.oldType){
+                this.oldType=type
+            }
+            if(this.oldType=='password'){
+                if(this.showPassword){
+                    if(!!this.showPass){
+                        type='text'
+                    }else{
+                        type='password'
+                    }
+                }
+            }
+            return type
         },
         nativeInputValue() {
             // console.error(this.value)
@@ -132,11 +175,23 @@ export default {
         inputSize(){
             return this.size||(this.yoForm||{}).size||this.$YOUI.size
         },
+        showPassClasses(){
+            return {
+                [`yo-icon-eye`]:!!this.showPass,
+                [`yo-icon-eye-close`]:!this.showPass,
+            }
+        },
         yoClasses() {
             return this.type=='textarea'?{
-                [`yo-textarea`]:true,
+                [`${t_prefix}`]:true,
+                [`${t_prefix}-outer`]:!!this.outer,
+                [`${t_prefix}-circle`]: !!this.circle,
+                [`${t_prefix}-round`]: !!this.round,
+                [`${t_prefix}-square`]: !!this.square,
+                [`${t_prefix}-disabled`]: !!this.disabled,
             }:{
                 [`${prefix}`]: true,
+                [`${prefix}-outer`]:!!this.outer,
                 [`${prefix}-circle`]: !!this.circle,
                 [`${prefix}-round`]: !!this.round,
                 [`${prefix}-square`]: !!this.square,
@@ -161,10 +216,22 @@ export default {
             return maxlength
         },
     },
+    updated() {
+        this.updateComponent()
+    },
     //存放 方法
     methods: {
+        updateComponent(){
+            this.$nextTick(()=>{
+                if(this.$refs.input){
+                    let left=this.$refs.pre_box.offsetWidth,right=this.$refs.post_box.offsetWidth                
+                    this.$refs.input.style.cssText=`padding-left:${left>0?left:(left+5)}px;padding-right:${right>0?right:(right+5)}px`
+                }
+            })
+        },
 		init(){
             this.setNativeInputValue();
+            // console.log('----',this.$attrs,this.type)
         },
         //使input 失去焦点
         blur(){},
@@ -231,6 +298,7 @@ export default {
             //增加未写v-model 的控件处理
             if(this.value!==undefined){
                 input.value = this.nativeInputValue
+                this.updateComponent()
             }
         },
 	},
@@ -261,7 +329,7 @@ export default {
 
 	},
     mounted() { 
-		this.init()
+        this.init()
 	},
     //运行期间
     beforeUpdate() {
