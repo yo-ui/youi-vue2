@@ -14,6 +14,7 @@ export default {
     'componentLayout': {name:'componentLayout',path:'basic/layout',title:'布局组件'},
 
     'componentInput': {name:'componentInput',path:'form/input',title:'输入框组件'},
+    'componentRadio': {name:'componentRadio',path:'form/radio',title:'单选框组件'},
     
     'componentBreadcrumb': {name:'componentBreadcrumb',path:'navigation/breadcrumb',title:'面包屑组件'},
 

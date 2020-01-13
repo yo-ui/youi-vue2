@@ -93,7 +93,14 @@ export default {
             showPass:false,//是否显示密码
         }
     },
-    inject:['yoForm','yoFormItem'],
+    inject:{
+        yoForm:{
+            default:''
+        },
+        yoFormItem:{
+            default:''
+        }
+    },
     //存放 子组件
     // template: '',
     // 注意： 组件中的 所有 props 中的数据，都是通过 父组件传递给子组件的

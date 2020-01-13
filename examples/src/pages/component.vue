@@ -25,6 +25,7 @@
                 <h3 class="sub" v-text="langKey('表单组件')"></h3>
                 <ul class="list">
                     <router-link :to="{name:'componentInput'}"><li :class="{'active':code=='componentInput'}">{{langKey('输入框')}}</li></router-link>
+                    <router-link :to="{name:'componentRadio'}"><li :class="{'active':code=='componentRadio'}">{{langKey('单选框')}}</li></router-link>
                 </ul>
                 <h3 class="sub" v-text="langKey('导航组件')"></h3>
                 <ul class="list">

@@ -22,6 +22,8 @@ export default{
     
     'formInputInput1': () => import(/* webpackChunkName: "yo-component-form" */ './form/input/input1'),
     'formInputInput2': () => import(/* webpackChunkName: "yo-component-form" */ './form/input/input2'),
+    'formRadioRadio1': () => import(/* webpackChunkName: "yo-component-form" */ './form/radio/radio1'),
+    'formRadioRadio2': () => import(/* webpackChunkName: "yo-component-form" */ './form/radio/radio2'),
     
     'navigationBreadcrumbBreadcrumb1': () => import(/* webpackChunkName: "yo-component-navigation" */ './navigation/breadcrumb/breadcrumb1'),
     'navigationBreadcrumbBreadcrumb2': () => import(/* webpackChunkName: "yo-component-navigation" */ './navigation/breadcrumb/breadcrumb2'),

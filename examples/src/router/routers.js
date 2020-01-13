@@ -95,6 +95,15 @@ const Routers = [
             },
             component: () => import(/* webpackChunkName: "yo-component-Input" */ '@/pages/components/form/input/input'),
         },
+        //组件-单选框组件
+        {
+            path: RouterURL['componentRadio'].path,
+            name: RouterURL['componentRadio'].name,
+            meta: {
+                title: RouterURL['componentRadio'].title,
+            },
+            component: () => import(/* webpackChunkName: "yo-component-Radio" */ '@/pages/components/form/radio/radio'),
+        },
 
         // 导航
         //组件-面包屑组件

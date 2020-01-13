@@ -305,6 +305,58 @@
                 <i class="yo-icon-up"></i>
                 yo-icon-up
             </li>
+            <li>
+                <i class="yo-icon-power"></i>
+                yo-icon-power
+            </li>
+            <li>
+                <i class="yo-icon-switch-off"></i>
+                yo-icon-switch-off
+            </li>
+            <li>
+                <i class="yo-icon-switch-on"></i>
+                yo-icon-switch-on
+            </li>
+            <li>
+                <i class="yo-icon-check"></i>
+                yo-icon-check
+            </li>
+            <li>
+                <i class="yo-icon-check-on"></i>
+                yo-icon-check-on
+            </li>
+            <li>
+                <i class="yo-icon-check-off"></i>
+                yo-icon-check-off
+            </li>
+            <li>
+                <i class="yo-icon-radio1-off"></i>
+                yo-icon-radio1-off
+            </li>
+            <li>
+                <i class="yo-icon-radio1-on"></i>
+                yo-icon-radio1-on
+            </li>
+            <li>
+                <i class="yo-icon-radio11-on"></i>
+                yo-icon-radio11-on
+            </li>
+            <li>
+                <i class="yo-icon-radio-off"></i>
+                yo-icon-radio-off
+            </li>
+            <li>
+                <i class="yo-icon-radio-on"></i>
+                yo-icon-radio-on
+            </li>
+            <li>
+                <i class="yo-icon-radio2-off"></i>
+                yo-icon-radio2-off
+            </li>
+            <li>
+                <i class="yo-icon-radio2-on"></i>
+                yo-icon-radio2-on
+            </li>
         </ul>
     </div>
 </template>
