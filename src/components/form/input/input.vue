@@ -14,8 +14,10 @@ const template=`
             <slot name="prepend"></slot>
         </span>
         <span ref="pre_box" class="yo-icon-pre-box">
-        <slot name="left"></slot>
-        <i :class="'yo-icon-'+icon" v-if="icon"></i>
+            <span class="yo-icon-inner" v-if="$slots.prefix">
+                <slot name="prefix"></slot>
+            </span>
+            <i class="yo-icon-inner" :class="'yo-icon-'+icon" v-if="icon"></i>
         </span>
         <input 
         class="${prefix}-inner"
@@ -36,11 +38,20 @@ const template=`
         :type="nativeInputType"
         v-bind="$attrs"/>
         <span ref="post_box" class="yo-icon-post-box">
-        <i :class="'yo-icon-'+rightIcon" v-if="rightIcon"></i>
-        <i class="yo-icon-close" v-if="clearable&&this.value" @click="clear"></i>
-        <slot name="right"></slot>
-        <i :class="showPassClasses" @click="showPass=!showPass" v-if="showPassword"></i>
-        <span class="${prefix}-word-count" v-if="showWordLimit">{{ textLen }}/{{ upperLimit }}</span>
+            <i class="yo-icon-inner yo-icon-search" v-if="search&&!enterButton"></i>
+            <i class="yo-icon-inner" :class="'yo-icon-'+rightIcon" v-if="rightIcon"></i>
+            <i class="yo-icon-inner yo-icon-close" v-if="clearable&&this.value" @click="clear"></i>
+            <span class="yo-icon-inner" v-if="$slots.suffix">
+                <slot name="suffix"></slot>
+            </span>
+            <i class="yo-icon-inner" :class="showPassClasses" @click="showPass=!showPass" v-if="showPassword"></i>
+            <span class="${prefix}-word-count yo-icon-inner" v-if="showWordLimit">{{ textLen }}/{{ upperLimit }}</span>
+        </span>
+        <span v-if="search&&enterButton" class="yo-search-box">
+            <i class="yo-icon-search" v-if="!enterButtonValue"></i>
+            <template v-else>
+                {{enterButtonValue}}
+            </template>
         </span>
         <span class="${prefix}-append" v-if="$slots.append">
             <slot name="append"></slot>
@@ -92,6 +103,15 @@ export default {
         type:{
             type:String,
             default:'text',//组件类型  text textarea  默认为text
+        },
+        //是否开启search
+        search:{
+            type:Boolean,
+            default:false,
+        },
+        enterButton:{
+            type:[Boolean,String],
+            default:false,
         },
         //字数统计是否显示在外面
         outer:{
@@ -158,6 +178,9 @@ export default {
                 }
             }
             return type
+        },
+        enterButtonValue(){
+            return typeof(this.enterButton)==='string'?this.enterButton:''
         },
         nativeInputValue() {
             // console.error(this.value)
@@ -290,9 +313,9 @@ export default {
             if (!input){
                 return
             } 
-            if (input.value === this.nativeInputValue){
-                return
-            }
+            // if (input.value === this.nativeInputValue){
+            //     return
+            // }
             let value=this.nativeInputValue
             // console.error(value,this.value,'----')
             //增加未写v-model 的控件处理

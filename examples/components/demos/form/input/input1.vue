@@ -18,7 +18,7 @@
 		<p>{{langKey('可清空')}}</p>
 		<yo-input :placeholder="langKey('请输入内容')" v-model="yoInput" clearable></yo-input>
 		<p>{{langKey('显示字数统计')}}</p>
-		<yo-input show-word-limit clearable maxlength="100" :placeholder="langKey('请输入内容')" v-model="yoInput"></yo-input>
+		<yo-input show-word-limit clearable maxlength="100" :placeholder="langKey('请输入内容')" v-model="yoInput1"></yo-input>
 		<yo-input show-word-limit outer maxlength="100" :placeholder="langKey('请输入内容')" v-model="yoInput"></yo-input>
 		<yo-input show-word-limit  :placeholder="langKey('请输入内容')" v-model="yoInput"></yo-input>
 		<yo-input type="textarea" show-word-limit  :placeholder="langKey('请输入内容')" v-model="yoInput"></yo-input>
@@ -47,12 +47,20 @@
 		<yo-input :placeholder="langKey('请输入内容')" v-model="yoInput">
 			<span slot="prepend">Http://</span>
 		</yo-input>
-		<yo-input :placeholder="langKey('请输入内容')" v-model="yoInput">
+		<yo-input size="l" :placeholder="langKey('请输入内容')" v-model="yoInput">
 			<span slot="append">.com</span>
 		</yo-input>
 		<yo-input :placeholder="langKey('请输入内容')" v-model="yoInput">
 			<span slot="append" class="yo-icon-search"></span>
 		</yo-input>
+		<p>{{langKey('开启 search 属性，可以设置为搜索型输入框。')}}</p>
+		<yo-input search :placeholder="langKey('请输入内容')" v-model="yoInput">
+		</yo-input>
+		<yo-input search size="l" enter-button :placeholder="langKey('请输入内容')" v-model="yoInput">
+		</yo-input>
+		<yo-input search enter-button="Search" :placeholder="langKey('请输入内容')" v-model="yoInput">
+		</yo-input>
+
 	</div>
 </template>
 <script>
@@ -60,6 +68,7 @@ export default {
 	data() {
 		return {
 			yoInput:1,
+			yoInput1:2,
 		}
 	},
 	mounted() {

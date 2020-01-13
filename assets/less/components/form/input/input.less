@@ -4,7 +4,11 @@
  */
 @input-prefix: ~"@{prefix}input";
 @textarea-prefix: ~"@{prefix}textarea";
-
+@l-size:35;
+@m-size:30;
+@d-size:25;
+@s-size:20;
+@xs-size:15;
 .@{input-prefix}{
     .db(inline-flex);
     vertical-align: middle;
@@ -17,8 +21,8 @@
         }
     }
     .@{input-prefix}-inner{
-        .h(25);
-        .lh(25);
+        .h(@d-size);
+        // .lh(@d-size);
         .p(0 10px);
         .bor(1px solid @grayE);
         outline: none;
@@ -28,30 +32,39 @@
     }
     .yo-icon-pre-box{
         .posa;
+        // right:0;
+        top:0;
         left:0;
-        top:50%;
+        bottom: 0;
         // .p(0 5px);
         .df;
         align-items: center;
         cursor: pointer;
-        .tranf(translate(0,-50%));
-        [class*='yo-icon-']{
+        // .tranf(translate(0,-50%));
+        .yo-icon-inner{
             .ml(5);
-            .mr(5);
+            &:last-child{
+                .mr(5);
+            }
         }
     }
     .yo-icon-post-box{
         .posa;
         right:0;
-        top:50%;
+        top:0;
+        // left:0;
+        bottom: 0;
+        // top:50%;
         .df;
         // .p(0 5px);
         align-items: center;
         cursor: pointer;
-        .tranf(translate(0,-50%));
-        [class*='yo-icon-']{
+        // .tranf(translate(0,-50%));
+        .yo-icon-inner{
             .ml(5);
-            .mr(5);
+            &:last-child{
+                .mr(5);
+            }
         }
     }
     .yo-icon-close{
@@ -72,33 +85,88 @@
             opacity:1;
         }
     }
+    .yo-search-box{
+        .bc(@default);
+        .c(@white);
+        .lh(@d-size);
+        .p(0 10px);
+        .bor(1px solid @default);
+    }
     &.@{input-prefix}-l{
         .@{input-prefix}-inner{
             // .p(8px 10px);
-            .lh(35);
-            .h(35);
+            // .lh(@l-size);
+            .h(@l-size);
+        }
+        .yo-search-box{
+            .h(@l-size);
+            .lh(@l-size);
+        }
+        .@{input-prefix}-pre{
+            .h(@l-size);
+            .lh(@l-size);
+        }
+        .@{input-prefix}-append{
+            .h(@l-size);
+            .lh(@l-size);
         }
     }
     &.@{input-prefix}-m{
         .@{input-prefix}-inner{
             // .p(6px 10px);
-            .lh(30);
-            .h(30);
+            .lh(@m-size);
+            .h(@m-size);
+        }
+        .yo-search-box{
+            .h(@m-size);
+            .lh(@m-size);
+        }
+        .@{input-prefix}-pre{
+            .h(@m-size);
+            .lh(@m-size);
+        }
+        .@{input-prefix}-append{
+            .h(@m-size);
+            .lh(@m-size);
         }
     }
     &.@{input-prefix}-s{
         .@{input-prefix}-inner{
             // .p(px 10px);
-            .lh(20);
-            .h(20);
+            .lh(@s-size);
+            .h(@s-size);
+        }
+        .yo-search-box{
+            .h(@s-size);
+            .lh(@s-size);
+        }
+        .@{input-prefix}-pre{
+            .h(@s-size);
+            .lh(@s-size);
+        }
+        .@{input-prefix}-append{
+            .h(@s-size);
+            .lh(@s-size);
         }
 
     }
     &.@{input-prefix}-xs{
         .@{input-prefix}-inner{
             // .p(0 10px);
-            .lh(15);
-            .h(15);
+            .lh(@xs-size);
+            .h(@xs-size);
+        }
+        .yo-search-box{
+            .h(@xs-size);
+            .lh(@xs-size);
+        }
+        .@{input-prefix}-pre{
+            .h(@xs-size);
+            .lh(@xs-size);
+        }
+        .@{input-prefix}-append{
+            .h(@xs-size);
+            .lh(@xs-size);
         }
     }
     // .@{input-prefix}-word-count{
@@ -135,8 +203,8 @@
     vertical-align: middle;
     .bor(1px solid @grayE);
     .p(0 10px);
-    .lh(25);
-    .h(25);
+    .lh(@d-size);
+    .h(@d-size);
     .borr(none);
     .bc(@bg-disabled);
 }
@@ -145,8 +213,8 @@
     .bor(1px solid @grayE);
     .bc(@bg-disabled);
     .p(0 10px);
-    .lh(25);
-    .h(25);
+    .lh(@d-size);
+    .h(@d-size);
     .borl(none);    
 }
 .@{input-prefix}-word-count{
