@@ -8,17 +8,36 @@
     .db(inline-flex);
     align-items: center;
     user-select: none;
+    vertical-align: middle;
     .posr;
     .yo-icon{
         .posa;
-        left:0;
+        // left:0;
         // top:0;
         // bottom: 0;
         // .squ(25);
     }
+    &.@{radio-prefix}-border{
+        .bor(1px solid @default);
+        .p(5px);
+    }
+    &.@{radio-prefix}-round{
+        .br(5px);
+    }
+    &.@{radio-prefix}-circle{
+        .br(50%);
+    }
     .@{radio-prefix}-inner{
-        .mr(5);
+        .mr(10);
         opacity:0;
         vertical-align: middle;
+    }
+    &.@{radio-prefix}-disabled{
+        cursor: not-allowed;
+        .yo-icon{
+            .c(@font-disabled);
+            // .c(@font-disabled);
+            // .bc()
+        }
     }
 }

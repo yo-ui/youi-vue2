@@ -13,11 +13,13 @@ export default {
     template:`
         <template v-if="items&&items.length>0">
             <label v-for="(item,index) in items" class="${prefix}" :class="yoClasses" :style="yoStyles">
-                <i class="yo-icon yo-icon-radio-off" :class="iconClasses"></i>
+                <i class="yo-icon" :class="iconClasses"></i>
                 <input ref="radio" type="radio" 
                     class="${prefix}-inner"
                     aria-hidden="true"
                     v-model="model"
+                    :name="name"
+                    :disabled="disabled"
                     :value="label"
                 >
                 <slot></slot>
@@ -27,11 +29,13 @@ export default {
             </label>
         </template>
         <label v-else class="${prefix}" :class="yoClasses" :style="yoStyles">
-            <i class="yo-icon yo-icon-radio-off" :class="iconClasses"></i>
+            <i class="yo-icon" :class="iconClasses"></i>
             <input ref="radio" type="radio"
                 class="${prefix}-inner"
                 aria-hidden="true"
                 v-model="model"
+                :disabled="disabled"
+                :name="name"
                 :value="label"
             >
             <slot></slot>
@@ -54,6 +58,7 @@ export default {
 	//存放 数据
     data: function () {
         return {
+            value:false,
         }
     },
     //存放 子组件
@@ -61,9 +66,14 @@ export default {
     // 注意： 组件中的 所有 props 中的数据，都是通过 父组件传递给子组件的
     // props 中的数据，都是只读的，无法重新赋值
     props:{
+        name:{
+            type:[String]
+        },
+        value:{
+        },
         type:{
-            type:[Number],
-            default:1,
+            type:[Number,String],
+            default:0,
         },
         items:{
             type:Array,
@@ -71,6 +81,14 @@ export default {
         label:{
             type:String,
             default:'',
+        },
+        trueValue:{
+            type:[Object],
+            default:true,
+        },
+        falseValue:{
+            type:[Object],
+            default:false,
         },
         size:{
             type: String,
@@ -81,7 +99,19 @@ export default {
         border:{
             type:Boolean,
             default:false,
-        }
+        },
+        disabled:{
+            type:Boolean,
+            default:false,
+        },
+        round:{
+            type:Boolean,
+            default:false,
+        },
+        circle:{
+            type:Boolean,
+            default:false,
+        },
 	}, // 把父组件传递过来的 parentmsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据
     computed: {        
         radioSize(){
@@ -89,17 +119,24 @@ export default {
         },
         model:{
             get() {
-                return (this.yoRadioGroup||{}).value||this.value;
+                let value=(this.yoRadioGroup||{}).value||this.value;
+                // console.log('----------',value)
+                return value
             },
             set(val) {
+                if(!this.label){
+                    val=this.label=this.trueValue
+                }
                 if (this.yoRadioGroup) {
-                    // this.dispatch('yoRadioGroup', 'input', [val]);
                     this.yoRadioGroup.$emit('input',val);
                 } else {
-                    this.$emit('input', val);
+                    this.$emit('input', val)
                 }
-                this.$refs.radio && (this.$refs.radio.checked = this.model === this.label);
+                // this.$refs.radio && (this.$refs.radio.checked =this.label?( this.model == this.label):!this.model);
             }
+        },
+        isDisabled(){
+            return (this.yoForm||{}).disabled||(this.yoFormItem||{}).disabled||(this.yoRadioGroup||{}).disabled||this.disabled
         },
         yoStyles(){
             let yoStyles= {
@@ -109,14 +146,34 @@ export default {
             }
             return yoStyles
         },
+        iconClasses(){
+            if( Number(this.type)===0){
+                return {
+                    [{true:[`yo-icon-radio-on`],false:[`yo-icon-radio-off`]}[this.model === this.label]]:true,
+                }
+            }else if( Number(this.type)===1){
+                return {
+                    [{true:[`yo-icon-radio1-on`],false:[`yo-icon-radio1-off`]}[this.model == this.label]]: true,
+                }
+            }else if( Number(this.type)===2){
+                return {
+                    [{true:[`yo-icon-radio2-on`],false:[`yo-icon-radio2-off`]}[this.model === this.label]]: true,
+                }
+            }else if( Number(this.type)===3){
+                return {
+                    [{true:[`yo-icon-radio11-on`],false:[`yo-icon-radio1-off`]}[this.model === this.label]]: true,
+                }
+            }
+        },
         yoClasses() {
             return {
                 // [`${prefix}-default`]: !this.type,
                 [`${prefix}-${this.type}`]: !!this.type,
-                // [`${prefix}-circle`]: !!this.circle,
-                // [`${prefix}-round`]: !!this.btnRound,
+                [`${prefix}-border`]: !!this.border,
+                [`${prefix}-circle`]: !!this.circle,
+                [`${prefix}-round`]: !!this.round,
                 // [`${prefix}-square`]: !!this.square,
-                // [`${prefix}-disabled`]: !!this.disabled,
+                [`${prefix}-disabled`]: !!this.disabled,
                 // [`${prefix}-icon-circle`]: !!this.iconCircle,
                 // // [`${prefix}-text`]: !!this.text,
                 // [`${prefix}-loading`]: !!this.loading,
@@ -124,7 +181,6 @@ export default {
                 // [`${prefix}-${this.btnSize}`]: !!this.btnSize,
                 // [`${prefix}-plain`]: !!this.plain,
                 // [`${prefix}-transparent`]: !!this.transparent,
-                // [`${prefix}-no-border`]: this.noBorder === true
             }
         },
     },
@@ -148,7 +204,10 @@ export default {
 
 	},
     created() { 
+        // if(!this.label){
+        //     this.label=this.value
 
+        // }
 	},
     beforeMount() { 
 
