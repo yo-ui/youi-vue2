@@ -104,6 +104,15 @@ const Routers = [
             },
             component: () => import(/* webpackChunkName: "yo-component-Radio" */ '@/pages/components/form/radio/radio'),
         },
+        //组件-复选框组件
+        {
+            path: RouterURL['componentCheckbox'].path,
+            name: RouterURL['componentCheckbox'].name,
+            meta: {
+                title: RouterURL['componentCheckbox'].title,
+            },
+            component: () => import(/* webpackChunkName: "yo-component-Checkbox" */ '@/pages/components/form/checkbox/checkbox'),
+        },
 
         // 导航
         //组件-面包屑组件

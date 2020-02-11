@@ -22,6 +22,7 @@ import YoLink from './components/basic/link'
 // input
 import YoInput from './components/form/input'
 import YoRadio from './components/form/radio'
+import YoCheckbox from './components/form/checkbox'
 import YoForm from './components/form/form'
 import YoFormItem from './components/form/form-item'
 
@@ -50,6 +51,7 @@ const components = [
 	YoFormItem,
 	YoInput,
 	YoRadio,
+	YoCheckbox,
 ]
 
 const install = function(Vue, opts = {}) {
@@ -93,4 +95,5 @@ export default {
 	YoFormItem,
 	YoInput,
 	YoRadio,
+	YoCheckbox,
 }

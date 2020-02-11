@@ -6,8 +6,8 @@
 	<div class="demo">
 		值:{{yoRadio}}
 		<p>{{langKey('单独使用')}}</p>
-		<yo-radio v-model="single">{{langKey('单独使用')}}</yo-radio>{{single}}
-		<yo-radio v-model="single1" true-value="1" false-value="0">{{langKey('单独使用')}}</yo-radio>{{single1}}
+		<yo-radio v-model="single">{{langKey('单独使用')}}</yo-radio>
+		<yo-radio v-model="single1" true-value="1" false-value="0">{{langKey('单独使用')}}</yo-radio>
 		
 		<p>{{langKey('默认样式&样式0')}}</p>
 		<yo-radio v-model="yoRadio" :label="langKey('禁用')"></yo-radio>
