@@ -4,7 +4,7 @@
  */
 <template>
 	<div class="demo">
-		{{yoCheckbox}}
+		{{yoCheckbox}} <br>
 		<yo-checkbox v-model="yoCheckbox" label="上海"></yo-checkbox>
 		<yo-checkbox border v-model="yoCheckbox" label="广州"></yo-checkbox>
 	</div>
