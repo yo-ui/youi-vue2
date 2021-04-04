@@ -1,5 +1,9 @@
+<p align="center">
+  <img height="100"  width="100" src="https://www.yo-ui.com/static/images/logo.png"/>
+</p>
+
 # youi
-YoUi--前端脚手架
+YoUi--Vue2.0 前端UI框架 1.0
 
 # 目录结构
 ```
@@ -18,6 +22,21 @@ YoUi--前端脚手架
 |---- .prettierrc.js  文件格式化配置
 |---- package.json   项目管理配置
 |---- README.MD    项目说明文件
+```
+
+# youi
+
+[![npm package](https://img.shields.io/npm/v/youi.svg?style=flat-square)](https://www.npmjs.org/package/youi)
+![JS gzip size](http://img.badgesize.io/https://unpkg.com/youi/dist/youi.esm.js?style=flat-square&compression=gzip&label=gzip%20size:%20JS)
+![CSS gzip size](http://img.badgesize.io/https://unpkg.com/youi/themes/index.css?style=flat-square&compression=gzip&label=gzip%20size:%20CSS)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+
+> An UI components library.
+
+## Install
+
+```js
+npm install youi --save
 ```
 
 

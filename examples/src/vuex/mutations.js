@@ -12,10 +12,10 @@ export default {
 		fqCommon.setItem(Constants.LOCALSTORAGEKEY.LANGUAGE,item)
 		state.lang=item
 		state.langObj=getLang(item)
-		if(item=='ZH-CN'){
-			ELEMENT.locale(ELEMENT.lang.zhCN)
-		}else{
-			ELEMENT.locale(ELEMENT.lang.en)
-		}
+		// if(item=='ZH-CN'){
+		// 	ELEMENT.locale(ELEMENT.lang.zhCN)
+		// }else{
+		// 	ELEMENT.locale(ELEMENT.lang.en)
+		// }
 	},
 }
